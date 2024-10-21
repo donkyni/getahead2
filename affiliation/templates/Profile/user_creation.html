@@ -33,11 +33,13 @@
                     </nav>
                 </div>
                 {% if messages %}
-                  <ul>
-                    {% for message in messages %}
-                      <li>{{ message }}</li>
-                    {% endfor %}
-                  </ul>
+                    <div class="alert alert-success">
+                        <ul>
+                            {% for message in messages %}
+                              <li style="font-size:15px;font-weight:bold">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 {% endif %}
 
                 {% if u_form.errors %}

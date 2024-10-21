@@ -22,13 +22,13 @@ def decimal_to_float(val):
 
 # gestion du frontend
 def produitfrontend(request):
-    try:
+    """try:
         panier = Panier.objects.get(utilisateur=request.user)
         articles = panier.articles.filter(archive=False)
         nombre_articles = articles.count()
     except Panier.DoesNotExist:
         panier = 'PANIER'
-        nombre_articles = 0
+        nombre_articles = 0"""
 
     produits = PrixProduit.objects.filter(archive=False)
 
@@ -41,14 +41,15 @@ def produitfrontend(request):
     return render(request, 'frontend/produit/produitfrontend.html', locals())
 
 
+
 def detailproduitfrontend(request, id):
-    try:
+    """try:
         panier = Panier.objects.get(utilisateur=request.user)
         articles = panier.articles.filter(archive=False)
         nombre_articles = articles.count()
     except Panier.DoesNotExist:
         panier = 'PANIER'
-        nombre_articles = 0
+        nombre_articles = 0"""
 
     get_product = PrixProduit.objects.get(id=id)
     all_categorie = CategorieProduit.objects.filter(archive=False)
@@ -56,6 +57,7 @@ def detailproduitfrontend(request, id):
     return render(request, 'frontend/produit/detailproduitfrontend.html', locals())
 
 
+@login_required
 def ajouter_au_panier_frontend(request, id):
     produit = get_object_or_404(PrixProduit, id=id)
     panier, created = Panier.objects.get_or_create(utilisateur=request.user)
@@ -111,6 +113,7 @@ def voir_panierfrontend(request):
     return render(request, 'frontend/panierfront/panierfront.html', context)
 
 
+@login_required
 def updatepanierfrontend(request, id):
     panier = Panier.objects.get(utilisateur=request.user)
     articlespanier = ArticlePanier.objects.filter(archive=False, panier=panier)
@@ -126,6 +129,7 @@ def updatepanierfrontend(request, id):
                     'frontend/panierfront/listpanierfront.html', mycontext)
 
 
+@login_required
 def deletearticlepanierfrontend(request, id):
     data = dict()
     article = get_object_or_404(ArticlePanier, id=id)
@@ -225,6 +229,7 @@ def dash(request):
     return render(request, 'dash/dashboard.html', locals())
 
 
+@login_required
 def paydash(request, id):
     payements = Payement.objects.filter(statut=False)
     mycontext = {
@@ -239,11 +244,13 @@ def paydash(request, id):
                     'dash/listpaydash.html', mycontext)
 
 
+@login_required
 def stock(request):
     products = Produit.objects.filter(archive=False)
     return render(request, 'stock/stock.html', locals())
 
 
+@login_required
 def addproduct(request):
     if request.method == 'POST':
         p_form = ProduitForm(request.POST, request.FILES)
@@ -261,6 +268,7 @@ def addproduct(request):
     return render(request, 'stock/addproduct.html', locals())
 
 
+@login_required
 def updatestock(request, id):
     products = Produit.objects.filter(archive=False)
     mycontext = {
@@ -275,6 +283,7 @@ def updatestock(request, id):
                     'stock/liststock.html', mycontext)
 
 
+@login_required
 def deletestock(request, id):
     data = dict()
     product = get_object_or_404(Produit, id=id)
@@ -293,11 +302,13 @@ def deletestock(request, id):
     return JsonResponse(data)
 
 
+@login_required
 def categorieproduct(request):
     categories = CategorieProduit.objects.filter(archive=False)
     return render(request, 'stock/type/categorieproduct.html', locals())
 
 
+@login_required
 def addcategoriestock(request):
     categories = CategorieProduit.objects.filter(archive=False)
     if request.method == 'POST':
@@ -309,6 +320,7 @@ def addcategoriestock(request):
                     'categoriestock', 'stock/type/listcategoriestock.html', mycontext)
 
 
+@login_required
 def updatecategoriestock(request, id):
     categories = CategorieProduit.objects.filter(archive=False)
     mycontext = {
@@ -323,6 +335,7 @@ def updatecategoriestock(request, id):
                     'stock/type/listcategoriestock.html', mycontext)
 
 
+@login_required
 def deletecategoriestock(request, id):
     data = dict()
     categorie = get_object_or_404(CategorieProduit, id=id)
@@ -341,6 +354,7 @@ def deletecategoriestock(request, id):
     return JsonResponse(data)
 
 
+@login_required
 def prixproduit(request):
     prixproduits = PrixProduit.objects.filter(archive=False)
 
@@ -352,6 +366,7 @@ def prixproduit(request):
     return render(request, 'stock/prix/prixproduit.html', locals())
 
 
+@login_required
 def addprixproduit(request):
     prixproduits = PrixProduit.objects.filter(archive=False)
     if request.method == 'POST':
@@ -363,6 +378,7 @@ def addprixproduit(request):
                     'prixproduit', 'stock/prix/listprixproduit.html', mycontext)
 
 
+@login_required
 def updateprixproduit(request, id):
     prixproduits = PrixProduit.objects.filter(archive=False)
     mycontext = {
@@ -377,6 +393,7 @@ def updateprixproduit(request, id):
                     'stock/prix/listprixproduit.html', mycontext)
 
 
+@login_required
 def deleteprixproduit(request, id):
     data = dict()
     prixproduit = get_object_or_404(PrixProduit, id=id)
@@ -593,7 +610,7 @@ def updatepanier(request, id):
                     'vente/panier/listpanier.html', mycontext)
 
 
-
+@login_required
 def deletearticlepanier(request, id):
     data = dict()
 
@@ -757,9 +774,10 @@ def profile(request):
         "Maya": int(min((utilisateur.point - 155) / (485 - 155) * 100, 100)) if utilisateur.point > 155 else 0
     }
 
-    return render(request, 'profile/profile.html', locals())
+    return render(request, 'Profile/profile.html', locals())
 
 
+@login_required
 def editerprofile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, request.FILES, instance=request.user)
@@ -905,6 +923,7 @@ def creer_payement(utilisateur, montant, type_don, palier, statut):
     )
 
 
+@login_required
 def user_creation(request):
     admin_count = User.objects.filter(is_active=True, is_admin=True).count
     user_count = User.objects.filter(is_active=True).count
@@ -926,3 +945,25 @@ def user_creation(request):
         'admin_count': admin_count,
     }
     return render(request, 'Profile/user_creation.html', context)
+
+
+"""
+@login_required
+def change_password(request, id):
+    user_u = get_object_or_404(User, id=id)
+    if request.method == 'POST':
+        form = PasswordChangeForm(user_u, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Le mot de passe a bien été enrégistré')
+            return redirect('listeupdateuser', user_u.id)
+        else:
+            messages.error(request, 'ERREUR | VERIFIER VOS DONNEES')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'affiliation/password_change_form.html', {
+        'form': form,
+        'user_u': user_u
+    })
+"""

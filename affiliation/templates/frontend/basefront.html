@@ -229,9 +229,9 @@
                                 </li>
                                 -->
                                 {% if request.user.is_authenticated %}
-                                <li><i class="fi-rs-user"></i><a href="{% url 'profile' %}">Mon compte</a></li>
+                                <li><i class="fi-rs-user"></i><a href="{% url 'profile' %}">{{request.user}}</a></li>
                                 {% else %}
-                                <li><i class="fi-rs-user"></i><a href="#">Connexion / Inscription</a></li>
+                                <li><i class="fi-rs-user"></i><a href="{% url 'login' %}">Connexion / Inscription</a></li>
                                 {% endif %}
                             </ul>
                         </div>
@@ -840,7 +840,7 @@
                     <div class="col-lg-2  col-md-3">
                         <h5 class="widget-title wow fadeIn animated">Mon compte</h5>
                         <ul class="footer-list wow fadeIn animated">
-                            <li><a href="#">Se connecter</a></li>
+                            <li><a href="{% url 'login' %}">Se connecter</a></li>
                             <li><a href="#">Voir le panier</a></li>
                             <li><a href="#">Ma liste de souhait</a></li>
                             <li><a href="#">Suivre ma commade</a></li>
