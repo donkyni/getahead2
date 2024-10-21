@@ -1,0 +1,23 @@
+{% for bill in payements %}
+<tr class="btn-reveal-trigger">
+    <td class="py-2" style="font-weight:bold;font-size:15px">{{bill.utilisateur}}</td>
+    <td class="py-2" style="font-weight:bold;font-size:15px">{{bill.montant}}</td>
+    <td class="py-2" style="font-weight:bold;font-size:15px">{{bill.type_don}}</td>
+    <td class="py-2 text-end" style="font-weight:bold;font-size:15px">{{bill.palier}}</td>
+    <td class="text-center">
+        <div class="text-center">
+            <button class="btn btn-danger shadow btn-xs sharp me-1 show-form-update" data-url="{% url 'paydash' bill.id %}">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+        </div>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="5" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+    <td hidden="hidden" colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+    <td hidden="hidden" colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+    <td hidden="hidden" colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+    <td hidden="hidden" colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+</tr>
+{% endfor %}

@@ -1,0 +1,222 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' %}">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+    <!-- pace-progress -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/pace-progress/themes/black/pace-theme-flat-top.css' %}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/jqvmap/jqvmap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'affiliation/dist/css/adminlte.min.css' %}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/daterangepicker/daterangepicker.css' %}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{% static 'affiliation/plugins/summernote/summernote-bs4.css' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+
+    <title>Inscription Get Ahead 2.0</title>
+</head>
+<body style="background: url('{% static 'investissement/img/login2.jpg' %}');background-size: cover;">
+<!-- Content Wrapper. Contains page content -->
+<div class="container mt-3" style="background: url('{% static 'investissement/img/login1.jpg' %}');background-size: cover;padding:25px 15px 0px 15px">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card card-primary card-outline">
+                        <!--<div class="card-header ">
+                            Information de votre parrain
+                        </div>-->
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                {% if parrain.avatar %}
+                                <img style="height:100px;width:100px;" src="{{parrain.avatar.url}}" class="profile-user-img img-fluid img-circle" alt="User picture">
+                                {% else %}
+                                {% if parrain.sexe == "Homme" %}
+                                <img style="height:100px;width:100px;background-size:cover" src="{% static 'affiliation/img/male1.jpg' %}" class="profile-user-img img-fluid img-circle" alt="User picture"/>
+                                {% elif parrain.sexe == "Femme" %}
+                                <img style="height:100px;width:100px;background-size:cover" src="{% static 'affiliation/img/female.jpg' %}" class="profile-user-img img-fluid img-circle" alt="User picture"/>
+                                {% endif %}
+                                {% endif %}
+                            </div>
+
+                            <h3 class="profile-username text-center">{{parrain}}</h3>
+                            <div class="text-center">
+                                {% if parrain.poste.nom_du_poste == "Invité" %}
+                                <p style="font-weight:bold;font-size:14px" class="badge badge-danger">{{parrain.poste.nom_du_poste}}</p>
+                                {% elif parrain.poste.nom_du_poste == "Colibri" %}
+                                <p style="font-weight:bold;font-size:14px" class="badge badge-primary">{{parrain.poste.nom_du_poste}}</p>
+                                {% elif parrain.poste.nom_du_poste == "Manageur" %}
+                                <p style="font-weight:bold;font-size:14px" class="badge badge-success">{{parrain.poste.nom_du_poste}}</p>
+                                {% else %}
+                                <p style="font-weight:bold;font-size:14px" class="badge badge-secondary">Aucun poste</p>
+                                {% endif %}
+                            </div>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li style="text-align:center;" class="list-group-item">
+                                    <small style="font-weight:bold;font-size:16px"><span class="badge bg-secondary">Palier</span></small>
+                                    {% if parrain.palier is None%}
+                                    <p>Aucun palier</p>
+                                    {% else %}
+                                    <p>{{parrain.palier}}</p>
+                                    {% endif %}
+                                </li>
+                                <li style="text-align:center;" class="list-group-item">
+                                    <small style="font-weight:bold;font-size:16px"><span class="badge bg-secondary">Niveau</span></small>
+                                    {% if parrain.palier.niveau is None%}
+                                    <p>Aucun niveau</p>
+                                    {% else %}
+                                    <p>{{parrain.palier.niveau}}</p>
+                                    {% endif %}
+                                </li>
+                            </ul>
+
+                            <a style="color:white;font-size:15px;" class="btn btn-primary btn-block"><b><small><i>Votre parrain est membre depuis le </i></small><br>{{parrain.date_d_ajout|date:"d N Y"}}</b></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    {% if form.errors %}
+                    <div class=" text-center col-lg-12 alert alert-danger">
+                        <b>
+                            <a class="btn btn-dark btn-sm close" href="#" data-dismiss="alert">×</a>
+                            <p>Formulaire non valide, informations non enrégistré. VERIFIEZ VOS DONNEES</p>
+                        </b>
+                    </div>
+                    {% endif %}
+                    <div class="card">
+                        <div class="card-header text-center"><small style="font-size:15px"><b>Fiche d'inscription au programme GET AHEAD 2.0</b></small></div>
+                        <div class="card-body card-block">
+                            <form action="" method="post" class="">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 mb-0">
+                                        <label for="nom_parrain">Votre parrain*</label>
+                                        <span hidden>{{ form.nom_du_parent|as_crispy_field }}</span>
+                                        <input class="form-control text-bold" id="nom_parrain" type="text" value="{{nom_parrain_html}}" readonly>
+                                    </div>
+                                    <div class="form-group col-md-6 mb-0">
+                                        <label for="groupe_parrain">Votre groupe*</label>
+                                        <span hidden>{{ form.groupe|as_crispy_field }}</span>
+                                        <input class="form-control text-bold" id="groupe_parrain" type="text" value="{{groupe_parrain_html}}" readonly>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.nom_d_utilisateur|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.password|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.nom|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ form.prenom|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4 mb-0">
+                                        {{ form.adresse|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group col-md-4 mb-0">
+                                        {{ form.pays_de_residence|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group col-md-4 mb-0">
+                                        {{ form.telephone|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <!-- <small class="text-muted">L'année de naisssance servira pour les statistiques</small> -->
+                                {{ form.sexe|as_crispy_field }}
+                                {{ form.avatar|as_crispy_field }}
+                                <div class="form-actions form-group"><button type="submit" class="btn btn-block btn-primary">Valider les informations</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- jQuery -->
+<script src="{% static 'affiliation/plugins/jquery/jquery.min.js' %}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static 'affiliation/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'affiliation/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'affiliation/plugins/chart.js/Chart.min.js' %}"></script>
+<!-- Sparkline -->
+<script src="{% static 'affiliation/plugins/sparklines/sparkline.js' %}"></script>
+<!-- JQVMap -->
+<script src="{% static 'affiliation/plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'affiliation/plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'affiliation/plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+<!-- daterangepicker -->
+<script src="{% static 'affiliation/plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'affiliation/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'affiliation/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Summernote -->
+<script src="{% static 'affiliation/plugins/summernote/summernote-bs4.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'affiliation/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'affiliation/dist/js/adminlte.js' %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static 'affiliation/dist/js/pages/dashboard.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'affiliation/dist/js/demo.js' %}"></script>
+<!-- pace-progress -->
+<script src="{% static 'affiliation/plugins/pace-progress/pace.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<script>
+    $('select').selectpicker();
+</script>
+<script>
+    jQuery(document).ready(function() {
+        jQuery(".standardSelect").chosen({
+            disable_search_threshold: 10,
+            no_results_text: "Oops, nothing found!",
+            width: "100%"
+        });
+    });
+</script>
+<script>
+    // Material Select Initialization
+    $(document).ready(function() {
+    $('.mdb-select').materialSelect();
+    });
+</script>
+</body>
+</html>

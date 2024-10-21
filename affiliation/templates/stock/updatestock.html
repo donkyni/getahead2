@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+<form method="post" data-url="{% url 'updatestock' form.instance.id %}" class="update-form">
+	{% csrf_token %}
+		<div class="modal-header">
+			<h5 class="modal-title">Modifier les informations</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		</div>
+		<div class="modal-body">
+			{{form|crispy}}
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Fermer</button>
+			<button type="submit" class="btn btn-primary">Sauvegarder</button>
+		</div>
+</form>

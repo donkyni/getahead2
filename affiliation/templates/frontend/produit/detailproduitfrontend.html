@@ -1,0 +1,294 @@
+{% extends 'frontend/basefront.html' %}
+{% load static %}
+
+{% block link %}
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html" rel="nofollow">Accueil</a>
+                <span></span> <a href="{% url 'produitfrontend' %}">Produits</a> <span></span> {{get_product.produit}}
+            </div>
+        </div>
+    </div>
+
+    <section class="mt-50 mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="product-detail accordion-detail">
+                        <div class="row mb-50">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="detail-gallery">
+                                    <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+                                    <!-- MAIN SLIDES -->
+                                    <div class="product-image-slider">
+                                        <figure class="border-radius-10">
+                                            {% if get_product.produit.image1 != None%}
+                                            <img src="{{get_product.produit.image1.url}}" alt="product image">
+                                            {% endif %}
+                                        </figure>
+                                    </div>
+                                    <!-- THUMBNAILS --
+                                    <div class="slider-nav-thumbnails pl-15 pr-15">
+                                        <div><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/shop/thumbnail-3.jpg' %}" alt="product image"></div>
+                                        <div><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/shop/thumbnail-4.jpg' %}" alt="product image"></div>
+                                        <div><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/shop/thumbnail-5.jpg' %}" alt="product image"></div>
+                                        <div><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/shop/thumbnail-6.jpg' %}" alt="product image"></div>
+                                        <div><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/shop/thumbnail-7.jpg' %}" alt="product image"></div>
+                                        <div><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/shop/thumbnail-8.jpg' %}" alt="product image"></div>
+                                        <div><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/shop/thumbnail-9.jpg' %}" alt="product image"></div>
+                                    </div>
+                                    -->
+                                </div>
+                                <!-- End Gallery --
+                                <div class="social-icons single-share">
+                                    <ul class="text-grey-5 d-inline-block">
+                                        <li><strong class="mr-10">Partagez cette information :</strong></li>
+                                        <li class="social-facebook"><a href="#"><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/theme/icons/icon-facebook.svg' %}" alt=""></a></li>
+                                        <li class="social-twitter"> <a href="#"><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/theme/icons/icon-twitter.svg' %}" alt=""></a></li>
+                                        <li class="social-instagram"><a href="#"><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/theme/icons/icon-instagram.svg' %}" alt=""></a></li>
+                                        <li class="social-linkedin"><a href="#"><img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/theme/icons/icon-pinterest.svg' %}" alt=""></a></li>
+                                    </ul>
+                                </div>
+                                -->
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="detail-info">
+                                    <h2 class="title-detail">{{get_product.produit}}</h2>
+                                    <div class="product-detail-rating">
+                                        <div class="pro-details-brand">
+                                            <!-- <span> Marques : <a href="shop-grid-right.html">Bootstrap</a></span> -->
+                                        </div>
+                                        <!--
+                                        <div class="product-rate-cover text-end">
+                                            <div class="product-rate d-inline-block">
+                                                <div class="product-rating" style="width:90%">
+                                                </div>
+                                            </div>
+                                            <span class="font-small ml-5 text-muted"> (25 commentaires)</span>
+                                        </div>
+                                        -->
+                                    </div>
+                                    <div class="clearfix product-price-cover">
+                                        <div class="product-price primary-color float-left">
+                                            <ins><span class="text-brand">{{get_product.prix}} FCFA</span></ins>
+                                            {% if get_product.ancine_prix %}
+                                            <ins><span class="old-price font-md ml-15">{{get_product.ancien_prix}} FCFA</span></ins>
+                                            {% endif %}
+                                            <!-- <span class="save-price  font-md color3 ml-15">25% Off</span> -->
+                                        </div>
+                                    </div>
+                                    <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                                    <div class="short-desc mb-30">
+                                        <p>
+                                            {{get_product.produit.description}}
+                                        </p>
+                                    </div>
+                                    <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+                                    <form method="POST" action="{% url 'ajouter_au_panier_frontend' get_product.id %}">
+                                        {% csrf_token %}
+                                        <div class="detail-extralink">
+                                            <div class="detail-qty border radius">
+                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                                <span data-model-name="quantite" class="qty-val">1</span>
+                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                            </div>
+                                            <input type="hidden" name="quantite" id="quantite-hidden" value="1">
+                                            <div class="product-extra-link2">
+                                                <button id="toastr-success-top-full-width" type="submit" class="button button-add-to-cart">
+                                                    Ajouter au panier
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Detail Info -->
+                            </div>
+                        </div>
+                        <!--
+                        <div class="tab-style3">
+                            <ul class="nav nav-tabs text-uppercase">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">COMMENTAIRES (3)</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content shop_info_tab entry-main-content">
+                                <div class="tab-pane fade show active" id="Description">
+                                    <div class="">
+                                        {{get_product.produit.description}}
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="Reviews">
+                                    <div class="comments-area">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <h4 class="mb-30">Questions et réponses des clients</h4>
+                                                <div class="comment-list">
+                                                    <div class="single-comment justify-content-between d-flex">
+                                                        <div class="user justify-content-between d-flex">
+                                                            <div class="thumb text-center">
+                                                                <img src="{% static 'frontend/html/evara/evara-frontend/assets/imgs/page/avatar-6.jpg' %}" alt="">
+                                                                <h6><a href="#">Jacky Chan</a></h6>
+                                                                <p class="font-xxs">Since 2012</p>
+                                                            </div>
+                                                            <div class="desc">
+                                                                <div class="product-rate d-inline-block">
+                                                                    <div class="product-rating" style="width:90%">
+                                                                    </div>
+                                                                </div>
+                                                                <p>Thank you very fast shipping from Poland only 3days.</p>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <p class="font-xs mr-30">December 4, 2020 at 3:12 pm </p>
+                                                                        <a href="#" class="text-brand btn-reply">Reply <i class="fi-rs-arrow-right"></i> </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <h4 class="mb-30">Avis des clients</h4>
+                                                <div class="d-flex mb-10">
+                                                    <div class="product-rate d-inline-block mr-15">
+                                                        <div class="product-rating" style="width:90%">
+                                                        </div>
+                                                    </div>
+                                                    <h6>4.8 sur of 5</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment-form">
+                                        <h4 class="mb-15">Ajouter un commentaire</h4>
+                                        <div class="product-rate d-inline-block mb-30">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-12">
+                                                <form class="form-contact comment_form" action="#" id="commentForm">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="website" id="website" type="text" placeholder="Website">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="button button-contactForm">Envoyer le commentaire</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <div class="col-lg-3 primary-sidebar sticky-sidebar">
+                    <div class="widget-category mb-30">
+                        <h5 class="section-title style-1 mb-30 wow fadeIn animated">Catégories</h5>
+                        <ul class="categories">
+                            {% for categorie in all_categorie %}
+                            <li><a href="#">{{categorie}}</a></li>
+                            {% empty %}
+                            <li><a>Aucune catégorie de produit</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Product sidebar Widget -->
+                    <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
+                        <div class="widget-header position-relative mb-20 pb-10">
+                            <h5 class="widget-title mb-10">Nouveau produits</h5>
+                            <div class="bt-1 border-color-1"></div>
+                        </div>
+                        {% for vedette in vedettes %}
+                        <div class="single-post clearfix">
+                            <!--
+                            <div class="image">
+                                <img src="{% static 'html/evara/evara-frontend/assets/imgs/shop/thumbnail-3.jpg' %}" alt="#">
+                            </div>
+                            -->
+                            <div class="pt-10">
+                                <h5><a href="#">{{vedette.produit}}</a></h5>
+                                <p class="price mb-0 mt-5">{{vedette.prix}}</p>
+                                <!--
+                                <div class="product-rate">
+                                    <div class="product-rating" style="width:90%"></div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="single-post clearfix">
+                            <div class=" pt-10">
+                                <h5><a href="javascript:void(0)">Rien à afficher</a></h5>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block javascript %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    let qtyVal = document.querySelector('.qty-val');
+    let qtyDown = document.querySelector('.qty-down');
+    let qtyUp = document.querySelector('.qty-up');
+    let qtyHidden = document.getElementById('quantite-hidden');
+
+    // Fonction pour mettre à jour la quantité
+    function updateQty(newQty) {
+        qtyVal.textContent = newQty;
+        qtyHidden.value = newQty;  // Met à jour la valeur du champ caché
+    }
+
+    // Diminuer la quantité
+    qtyDown.addEventListener('click', function (e) {
+        e.preventDefault();
+        let currentQty = parseInt(qtyVal.textContent);
+        if (currentQty > 1) {
+            updateQty(currentQty - 1);
+        }
+    });
+
+    // Augmenter la quantité
+    qtyUp.addEventListener('click', function (e) {
+        e.preventDefault();
+        let currentQty = parseInt(qtyVal.textContent);
+        updateQty(currentQty + 1);
+    });
+});
+</script>
+{% endblock %}

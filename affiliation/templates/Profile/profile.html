@@ -1,0 +1,369 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- FAVICONS ICON -->
+<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<!--swiper-slider-->
+<link rel="stylesheet" href="{% static 'vendor/swiper/css/swiper-bundle.min.css' %}">
+<!-- Datatable -->
+<link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/datatables/responsive/responsive.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+  <link href="../css2?family=Material+Icons" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="content-body default-height mh-auto">
+    <div class="container-fluid">
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-titles">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Mon compte</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tableau de board</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-xl-7 col-xxl-7">
+                        <!-- Row -->
+                        <div class="row">
+                            <!--column-->
+                            <div class="col-xl-12">
+                                <div class="user card  ">
+                                    <div class="user-head">
+                                        <div class="photo-content">
+                                            <div class="cover-photo">
+                                                <div class="coin-1">
+                                                    <img src="{% static 'images/svg/iconsblue.svg' %}" alt="">
+                                                </div>
+                                                <div class="coin-2">
+                                                    <img src="{% static 'images/svg/iconsblue.svg' %}" alt="">
+                                                </div>
+                                                <div class="coin-3">
+                                                    <img src="{% static 'images/svg/iconsblue.svg' %}" alt="">
+                                                </div>
+                                                <div class="coin-4">
+                                                    <img src="{% static 'images/svg/iconsblue.svg' %}" alt="">
+                                                </div>
+                                                <div class="coin-5">
+                                                    <img src="{% static 'images/svg/iconsblue.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-info">
+                                            <div class="user-photo">
+                                                <img src="{% static 'images/icons-user-profile-social-blue2.png' %}" class="img-fluid rounded-circle" alt="">
+                                            </div>
+                                            <div class="user-details">
+                                                <div>
+                                                    <div class="profile-name">
+                                                        <h4>{{utilisateur}}</h4>
+                                                        <h6>{{utilisateur.nom_d_utilisateur}}</h6>
+                                                        <span>
+                                                            <svg width="16" height="16" viewbox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M8 0.5C5.87827 0.5 3.84344 1.34285 2.34315 2.84315C0.842855 4.34344 0 6.37827 0 8.5C0 13.9 7.05 20 7.35 20.26C7.53113 20.4149 7.76165 20.5001 8 20.5001C8.23835 20.5001 8.46887 20.4149 8.65 20.26C9 20 16 13.9 16 8.5C16 6.37827 15.1571 4.34344 13.6569 2.84315C12.1566 1.34285 10.1217 0.5 8 0.5ZM8 18.15C5.87 16.15 2 11.84 2 8.5C2 6.9087 2.63214 5.38258 3.75736 4.25736C4.88258 3.13214 6.4087 2.5 8 2.5C9.5913 2.5 11.1174 3.13214 12.2426 4.25736C13.3679 5.38258 14 6.9087 14 8.5C14 11.84 10.13 16.16 8 18.15ZM8 4.5C7.20887 4.5 6.43552 4.7346 5.77772 5.17412C5.11992 5.61365 4.60723 6.23836 4.30448 6.96927C4.00173 7.70017 3.92252 8.50444 4.07686 9.28036C4.2312 10.0563 4.61216 10.769 5.17157 11.3284C5.73098 11.8878 6.44371 12.2688 7.21964 12.4231C7.99556 12.5775 8.79983 12.4983 9.53073 12.1955C10.2616 11.8928 10.8864 11.3801 11.3259 10.7223C11.7654 10.0645 12 9.29113 12 8.5C12 7.43913 11.5786 6.42172 10.8284 5.67157C10.0783 4.92143 9.06087 4.5 8 4.5ZM8 10.5C7.60444 10.5 7.21776 10.3827 6.88886 10.1629C6.55996 9.94318 6.30362 9.63082 6.15224 9.26537C6.00087 8.89991 5.96126 8.49778 6.03843 8.10982C6.1156 7.72186 6.30608 7.36549 6.58579 7.08579C6.86549 6.80608 7.22186 6.6156 7.60982 6.53843C7.99778 6.46126 8.39991 6.50087 8.76537 6.65224C9.13082 6.80362 9.44318 7.05996 9.66294 7.38886C9.8827 7.71776 10 8.10444 10 8.5C10 9.03043 9.78929 9.53914 9.41421 9.91421C9.03914 10.2893 8.53043 10.5 8 10.5Z" fill="var(--primary)"></path>
+                                                            </svg>
+                                                            {{utilisateur.pays}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="user-contact">
+                                                        <div class="user-number ">
+                                                            <div class="icon-bx icon-bx-sm bg-primary me-2">
+                                                                <svg width="16" height="16" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M27.2974 20.3613C27.2526 20.1711 27.1666 19.9931 27.0454 19.8399C26.9242 19.6867 26.7708 19.562 26.5961 19.4746L21.2627 16.8079C21.0124 16.683 20.7291 16.64 20.453 16.685C20.1768 16.7299 19.9218 16.8607 19.7241 17.0586L17.4907 19.2919C14.2814 18.7759 9.22408 13.7199 8.70941 10.5106L10.9427 8.27593C11.1407 8.07819 11.2714 7.8232 11.3164 7.54705C11.3614 7.27091 11.3184 6.98761 11.1934 6.73727L8.52675 1.40393C8.43945 1.22911 8.3148 1.07562 8.16161 0.954309C8.00842 0.833002 7.83044 0.746847 7.64027 0.701943C7.45009 0.657039 7.25238 0.654484 7.06111 0.694458C6.86983 0.734431 6.68969 0.815957 6.53341 0.933266L1.20008 4.93327C1.03449 5.05746 0.900082 5.21851 0.807512 5.40365C0.714941 5.58879 0.666748 5.79294 0.666748 5.99993C0.666748 18.7599 9.24008 27.3333 22.0001 27.3333C22.2071 27.3333 22.4112 27.2851 22.5964 27.1925C22.7815 27.0999 22.9426 26.9655 23.0667 26.7999L27.0667 21.4666C27.1837 21.3105 27.265 21.1305 27.3049 20.9396C27.3447 20.7486 27.3422 20.5512 27.2974 20.3613ZM21.3334 24.6573C10.7587 24.3733 3.62675 17.2413 3.34275 6.6666L6.85608 4.02527L8.37741 7.0666L6.39075 9.05327C6.26645 9.17752 6.16795 9.32513 6.1009 9.4876C6.03386 9.65006 5.99959 9.82418 6.00008 9.99993C6.00008 14.7106 13.2894 21.9999 18.0001 21.9999C18.3537 21.9999 18.6928 21.8593 18.9427 21.6093L20.9294 19.6226L23.9748 21.1453L21.3334 24.6573Z" fill="#FCFCFC"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <h6 class="mb-0">{{utilisateur.telephone}}</h6>
+                                                        </div>
+                                                        <div class="user-email">
+                                                            <div class="icon-bx icon-bx-sm bg-primary me-2">
+                                                                <svg width="16" height="16" viewbox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M24 1.85315C24.0075 1.76443 24.0075 1.67522 24 1.58649L23.88 1.33315C23.88 1.33315 23.88 1.23982 23.8133 1.19982L23.7467 1.13315L23.5333 0.95982C23.475 0.90049 23.4075 0.850965 23.3333 0.813154L23.1067 0.733154H22.84H1.24H0.973333L0.746667 0.826487C0.672327 0.85818 0.604514 0.903389 0.546667 0.95982L0.333333 1.13315C0.333333 1.13315 0.333333 1.13315 0.333333 1.19982C0.333333 1.26649 0.333333 1.29315 0.266667 1.33315L0.146667 1.58649C0.13912 1.67522 0.13912 1.76443 0.146667 1.85315L0 1.99982V17.9998C0 18.3534 0.140476 18.6926 0.390524 18.9426C0.640573 19.1927 0.979711 19.3332 1.33333 19.3332H13.3333C13.687 19.3332 14.0261 19.1927 14.2761 18.9426C14.5262 18.6926 14.6667 18.3534 14.6667 17.9998C14.6667 17.6462 14.5262 17.3071 14.2761 17.057C14.0261 16.807 13.687 16.6665 13.3333 16.6665H2.66667V4.66649L11.2 11.0665C11.4308 11.2396 11.7115 11.3332 12 11.3332C12.2885 11.3332 12.5692 11.2396 12.8 11.0665L21.3333 4.66649V16.6665H18.6667C18.313 16.6665 17.9739 16.807 17.7239 17.057C17.4738 17.3071 17.3333 17.6462 17.3333 17.9998C17.3333 18.3534 17.4738 18.6926 17.7239 18.9426C17.9739 19.1927 18.313 19.3332 18.6667 19.3332H22.6667C23.0203 19.3332 23.3594 19.1927 23.6095 18.9426C23.8595 18.6926 24 18.3534 24 17.9998V1.99982C24 1.99982 24 1.90649 24 1.85315ZM12 8.33315L5.33333 3.33315H18.6667L12 8.33315Z" fill="#FCFCFC"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <h6 class="mb-0">{{utilisateur.mail}}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="side-detail">
+                                                    <div class="edit-profiil">
+                                                        <a href="{% url 'editerprofile' %}" class="btn light btn-primary btn-sm text-nowrap">Editer le profile</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--/column-->
+                            <div class="col-xl-12">
+                                <div class="card pie-chart2">
+                                    <div class="card-header border-0">
+                                        <h2 class="card-title">Programme GET AHEAD</h2>
+                                        <div class="d-flex align-items-center">
+                                            <div class="coman-btn me-2">
+                                                <a href="#" class="btn light btn-primary btn-sm mx-1">Groupe</a>
+                                                {% if user_bill_count != 0 %}
+                                                <a href="#" class="btn light btn-primary btn-sm mx-1">Payements</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div class="text-center radius-bar">
+                                        <div class="d-inline-block position-relative donut-chart-sale">
+                                            <span class="donut3" data-peity='{ "fill": ["rgba(1, 163, 255,1)", "rgba(243, 243, 243, 1)"],   "innerRadius":50, "radius": 5}'>7/8</span>
+                                            <small>90%</small>
+                                        </div>
+                                        <h5 class="mb-0">Bamiléké</h5>
+                                    </div>
+                                    -->
+
+                                    <div class="card-body">
+                                        <div class="chart-group">
+                                            <div class="text-center radius-bar">
+                                                <div class="progress default-progress mb-3 mt-2 h-auto">
+                                                    <div class="progress-bar bg-danger progress-animated" style="width: {{ pourcentages_paliers.Bamiléké }}%; height:6px;" role="progressbar">
+                                                        <span class="sr-only">{{ pourcentages_paliers.Bamiléké }}% Complete</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-inline-block position-relative donut-chart-sale">
+                                                    <span class="donut3" data-peity='{ "fill": ["rgba(1, 163, 255,1)", "rgba(243, 243, 243, 1)"], "innerRadius":50, "radius": 5}'>
+                                                        {{ pourcentages_paliers.Bamiléké }}</span>
+                                                    <small style="color:#FD5353">{{ pourcentages_paliers.Bamiléké }}%</small>
+                                                </div>
+                                                <h5 class="mb-0" style="color:#FD5353">Bamiléké</h5>
+                                            </div>
+                                            <div class="text-center radius-bar">
+                                                <div class="progress default-progress mb-3 mt-2 h-auto">
+                                                    <div class="progress-bar bg-secondary progress-animated" style="width: {{ pourcentages_paliers.Zoulou }}%; height:6px;" role="progressbar">
+                                                        <span class="sr-only">{{ pourcentages_paliers.Zoulou }}% Complete</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-inline-block position-relative donut-chart-sale">
+                                                    <span class="donut3" data-peity='{ "fill": ["rgba(235, 98, 208,1)", "rgba(243, 243, 243, 1)"], "innerRadius": 50, "radius": 8}'>
+                                                        {{ pourcentages_paliers.Zoulou }}</span>
+                                                    <small style="color:#9568FF">{{ pourcentages_paliers.Zoulou }}%</small>
+                                                </div>
+                                                <h5 class="mb-0" style="color:#9568FF">Zoulou</h5>
+                                            </div>
+                                            <div class="text-center radius-bar">
+                                                <div class="progress default-progress mb-3 mt-2 h-auto">
+                                                    <div class="progress-bar bg-danger progress-animated" style="width: {{ pourcentages_paliers.Maya }}%; height:6px;" role="progressbar">
+                                                        <span class="sr-only">{{ pourcentages_paliers.Maya }}% Complete</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-inline-block position-relative donut-chart-sale">
+                                                    <span class="donut3" data-peity='{ "fill": ["rgba(149, 104, 255,1)", "rgba(243, 243, 243, 1)"], "innerRadius": 50, "radius": 8}'>
+                                                        {{ pourcentages_paliers.Maya }}</span>
+                                                    <small style="color:#1EBA62">{{ pourcentages_paliers.Maya }}%</small>
+                                                </div>
+                                                <h5 class="mb-0" style="color:#1EBA62">Maya</h5>
+                                            </div>
+                                        </div>
+                                        <!--
+                                        <div class="chart-info">
+                                            <div>
+                                                <h5>Points gagnés : {{ utilisateur.point }}</h5>
+                                            </div>
+                                        </div>
+                                        -->
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="card messages ">
+                                    <div class="card-header border-0 p-4 pb-0 ">
+                                        <div>
+                                            <h2 class="card-title">Historique des achats</h2>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="loadmore-content  recent-activity-wrapper dlab-scroll height400" id="RecentActivityContent">
+                                        <div class="table-responsive">
+                                            <table id="example3" class="table table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <!-- rajouter un bouton action pour supprimer une ligne une fois que le statut de la commande est achevé -->
+                                                        <th class="align-middle pe-7">No°</th>
+                                                        <th class="align-middle pe-7">Date</th>
+                                                        <th class="align-middle" style="min-width: 12.5rem;">Produit</th>
+                                                        <th class="align-middle text-end">Statut</th>
+                                                        <th class="align-middle text-end">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="orders">
+                                                    {% for historique in historiques %}
+                                                    <tr class="btn-reveal-trigger">
+                                                        <td class="py-2" style="font-weight:bold;font-size:15px">#{{historique.id}}</td>
+                                                        <td class="py-2" style="font-weight:bold;font-size:15px">{{historique.date|date:"d/m/Y"}}</td>
+
+                                                        <td class="py-2" style="font-weight:bold;font-size:15px">
+                                                            <ul>
+                                                            {% for article in historique.panier.all %}
+                                                                <li>{{ article.produit.produit.libelle }} - Quantité : {{ article.quantite }}</li>
+                                                            {% endfor %}
+                                                            </ul>
+
+                                                        </td>
+
+                                                        {% if historique.statut is None %}
+                                                        <td class="py-2 text-end" style="font-weight:bold;font-size:15px"><span class="badge badge-success badge-sm light">{{historique.statut}}<span class="ms-1 fa fa-check"></span></span>
+                                                        </td>
+                                                        {% elif historique.statut == "Achevé" %}
+                                                        <td class="py-2 text-end" style="font-weight:bold;font-size:15px"><span class="badge badge-success badge-sm light">{{historique.statut}}<span class="ms-1 fa fa-check"></span></span>
+                                                        </td>
+                                                        {% elif historique.statut == "En attente" %}
+                                                        <td class="py-2 text-end" style="font-weight:bold;font-size:15px"><span class="badge badge-secondary badge-sm light">{{historique.statut}}<span class="ms-1 fa fa-ban"></span></span>
+                                                        </td>
+                                                        {% endif %}
+
+                                                        <td class="py-2 text-end" style="font-weight:bold;font-size:15px">{{historique.prix}}</td>
+                                                    </tr>
+                                                    {% empty %}
+                                                    <tr>
+                                                        <td colspan="5" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune commande en cours.
+                                                            <br><a style="color:#01A3FF;" href="{% url 'produitfrontend' %}">Faites des achats</a></td>
+                                                        <td hidden="hidden" colspan="5" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+                                                        <td hidden="hidden" colspan="5" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+                                                        <td hidden="hidden" colspan="5" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+                                                        <td hidden="hidden" colspan="5" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="card-footer text-center border-0 pt-0">
+                                        <a style="font-size:15px" href="https://wa.me/22896339034" target="_blank" class="btn btn-block btn-primary" id="RecentActivity" rel="ajax/message.html">
+                                            Pour toutes préoccupation veuillez contactez le +228 96339034</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xl-5 col-xxl-5">
+                        <!--row-->
+
+                            <div class="col-xl-12">
+                                <div class="card messages ">
+                                    <div class="card-header border-0 p-4 pb-0 ">
+                                        <div>
+                                            <h2 class="card-title">Historique des payements</h2>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="loadmore-content  recent-activity-wrapper dlab-scroll height300" id="RecentActivityContent">
+                                        <div class="table-responsive">
+                                            <table id="example3" class="table table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="align-middle pe-7">Montant</th>
+                                                        <th class="align-middle">Type Don</th>
+                                                        <th class="align-middle text-end">Palier</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for bill in user_bill %}
+                                                    <tr class="btn-reveal-trigger">
+                                                        <td class="py-2" style="font-weight:bold;font-size:15px">{{bill.montant}}</td>
+                                                        <td class="py-2" style="font-weight:bold;font-size:15px">{{bill.type_don}}</td>
+                                                        <td class="py-2 text-end" style="font-weight:bold;font-size:15px">{{bill.palier}}</td>
+                                                    </tr>
+                                                    {% empty %}
+                                                    <tr>
+                                                        <td colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+                                                        <td hidden="hidden" colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+                                                        <td hidden="hidden" colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun payements n'est disponible</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row-->
+                    </div>
+                </div>
+            </div>
+            <!--/column-->
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Messages</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3 d-block">
+                <label class="form-label d-block mb-2">Enter Name</label>
+                <input type="text" class="form-control w-100" placeholder="Name" aria-label="Username">
+                </div>
+                <div class="mb-3 d-block">
+                <label class="form-label d-block mb-2">Enter Position</label>
+                <input type="text" class="form-control w-100" placeholder="Position" aria-label="Username">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!-- Required vendors -->
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/chart-js/chart.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+
+<!-- Chart piety plugin files -->
+<script src="{% static 'vendor/peity/jquery.peity.min.js' %}"></script>
+<script src="{% static 'js/user.js' %}"></script>
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/dlabnav-init.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script src="{% static 'js/styleSwitcher.js' %}"></script>
+
+<!-- Datatable -->
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/responsive/responsive.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+<script src="{% static 'js/modalpanier.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends 'frontend/basefront.html' %}
+{% load static %}
+
+{% block link %}
+<!-- Datatable -->
+<link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/datatables/responsive/responsive.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="{% url 'produitfrontend' %}" rel="nofollow">Produits</a>
+                <span></span> Panier
+            </div>
+        </div>
+    </div>
+    <section class="mt-50 mb-50">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-9">
+                    <!--
+                    <div class="shop-product-fillter">
+                        <div class="totall-product">
+                            <--
+                            <p> Nous avons trouvé <strong class="text-brand">688</strong> articles pour vous !</p>
+                            --
+                        </div>
+                        <div class="sort-by-product-area">
+                            <div class="sort-by-cover mr-10">
+                                <div class="sort-by-product-wrap">
+                                    <div class="sort-by">
+                                        <span><i class="fi-rs-apps"></i>Afficher :</span>
+                                    </div>
+                                    <div class="sort-by-dropdown-wrap">
+                                        <span> 50 <i class="fi-rs-angle-small-down"></i></span>
+                                    </div>
+                                </div>
+                                <div class="sort-by-dropdown">
+                                    <ul>
+                                        <li><a class="active" href="#">50</a></li>
+                                        <li><a href="#">100</a></li>
+                                        <li><a href="#">150</a></li>
+                                        <li><a href="#">200</a></li>
+                                        <li><a href="#">All</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sort-by-cover">
+                                <div class="sort-by-product-wrap">
+                                    <div class="sort-by">
+                                        <span><i class="fi-rs-apps-sort"></i>Filtrer par :</span>
+                                    </div>
+                                    <div class="sort-by-dropdown-wrap">
+                                        <span> Featured <i class="fi-rs-angle-small-down"></i></span>
+                                    </div>
+                                </div>
+                                <div class="sort-by-dropdown">
+                                    <ul>
+                                        <li><a class="active" href="#">Featured</a></li>
+                                        <li><a href="#">Price: Low to High</a></li>
+                                        <li><a href="#">Price: High to Low</a></li>
+                                        <li><a href="#">Release Date</a></li>
+                                        <li><a href="#">Avg. Rating</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    <div class="row">
+                        <div class="col-lg-4 order-lg-2 mb-4">
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-black" style="font-size:20px">Votre panier</span>
+                                <span class="badge badge-primary badge-pill" style="color:black;font-size:16px">{{nombre_articles}} article{{ nombre_articles|pluralize }}</span>
+                            </h4>
+                            {% if articles_avec_sous_total %}
+                            <ul class="list-group mb-3">
+                                {% for item in articles_avec_sous_total %}
+                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                        <h6 style="font-weight:bold;font-size:16px" class="my-0">{{ item.article.produit.produit.libelle }}</h6>
+                                            <small style="font-size:13px" class="text-muted">Prix unitaire: {{ item.article.produit.prix }}</small>
+                                    </div>
+                                    <span class="text-bold" style="font-size:18px">
+                                        <small style="font-size:13px" class="text-muted">Quantité: {{ item.article.quantite }}</small>
+                                        <br>{{ item.sous_total }}
+                                    </span>
+                                </li>
+                                {% endfor %}
+
+                                <li style="font-weight:bold;font-size:20px;color:#088178" class="list-group-item d-flex justify-content-between">
+                                    <span>Total (FCFA)</span>
+                                    <strong>{{ total }}</strong>
+                                </li>
+                            </ul>
+                            <form action="{% url 'soumettre_panierfrontend' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline btn-lg btn-block btn-brand-outline font-weight-bold text-brand bg-white text-hover-white ml-15 border-radius-5 btn-shadow-brand hover-up">
+                                    Envoyez la commande</button>
+                            </form>
+                            {% else %}
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <span>Votre panier est vide.</span>
+                                    <strong>0 FCFA</strong>
+                                </li>
+                            </ul>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-lg-8 order-lg-1">
+                            <h4 class="mb-3">Liste des articles du panier</h4>
+                            <div class="table-responsive">
+                                <table id="example3" class="display" style="min-width: 535px">
+                                    <thead>
+                                        <tr>
+                                            <th>Produit</th>
+                                            <th>Quantité</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% include "frontend/panierfront/listpanierfront.html" %}
+                                    </tbody>
+                                </table>
+
+                                <!-- Popup ajouter nouvelle personne -->
+                                <div class="modal fade" id="modal-panier">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                </div>
+                    </div>
+                    <!--pagination--
+                    <div class="pagination-area mt-15 mb-sm-5 mb-lg-0">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-start">
+                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                                <li class="page-item"><a class="page-link" href="#">02</a></li>
+                                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                                <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">16</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fi-rs-angle-double-small-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    -->
+                </div>
+                <div class="col-lg-3 primary-sidebar sticky-sidebar">
+                    <div class="widget-category mb-30">
+                        <h5 class="section-title style-1 mb-30 wow fadeIn animated">Catégories</h5>
+                        <ul class="categories">
+                            {% for categorie in all_categorie %}
+                            <li><a href="shop-grid-right.html">{{categorie}}</a></li>
+                            {% empty %}
+                            <li><a href="shop-grid-right.html">Aucune catégorie</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Product sidebar Widget -->
+                    <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
+                        <div class="widget-header position-relative mb-20 pb-10">
+                            <h5 class="widget-title mb-10">Nouveau produits</h5>
+                            <div class="bt-1 border-color-1"></div>
+                        </div>
+                        {% for vedette in vedettes %}
+                        <div class="single-post clearfix">
+                            <!--
+                            <div class="image">
+                                <img src="{% static 'html/evara/evara-frontend/assets/imgs/shop/thumbnail-3.jpg' %}" alt="#">
+                            </div>
+                            -->
+                            <div class="pt-10">
+                                <h5><a href="shop-product-detail.html">{{vedette.produit}}</a></h5>
+                                <p class="price mb-0 mt-5">{{vedette.prix}}</p>
+                                <!--
+                                <div class="product-rate">
+                                    <div class="product-rating" style="width:90%"></div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="single-post clearfix">
+                            <div class=" pt-10">
+                                <h5><a href="javascript:void(0)">Rien à afficher</a></h5>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block javascript %}
+<!-- Datatable -->
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/responsive/responsive.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+<script src="{% static 'js/modalpanier.js' %}"></script>
+{% endblock %}

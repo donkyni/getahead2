@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- FAVICONS ICON -->
+<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+<!-- Datatable -->
+<link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/datatables/responsive/responsive.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+  <link href="../css2?family=Material+Icons" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-titles">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Gestion des ventes</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Listes des commandes</li>
+                        </ol>
+                      </nav>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body py-3">
+                                <div class="table-responsive">
+                                    <table id="example3" class="table table-sm mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="align-middle">Commande</th>
+                                                <th class="align-middle pe-7">Date</th>
+                                                <th class="align-middle" style="min-width: 12.5rem;">Produit</th>
+                                                <th class="align-middle text-end">Statut</th>
+                                                <th class="align-middle text-end">Total</th>
+                                                <th class="align-middle text-end">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="orders">
+                                        {% include "vente/listvente.html" %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!-- Required vendors -->
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/dlabnav-init.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script src="{% static 'js/styleSwitcher.js' %}"></script>
+
+<!-- Datatable -->
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/responsive/responsive.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+<script src="{% static 'js/modalpanier.js' %}"></script>
+{% endblock %}

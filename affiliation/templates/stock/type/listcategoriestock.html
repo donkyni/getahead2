@@ -1,0 +1,26 @@
+{% for categorie in categories %}
+<tr>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{categorie.id}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{categorie.libelle}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{categorie.seuil}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{categorie.points_initial}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{categorie.points_suivants}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{categorie.points_par_parrainage}}</strong></a></td>
+    <td>
+        <div class="d-flex">
+            <button class="btn btn-primary shadow btn-xs sharp me-1 show-form-update" data-url="{% url 'updatecategoriestock' categorie.id %}"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-danger shadow btn-xs sharp show-form-delete" data-url="{% url 'deletecategoriestock' categorie.id %}"><i class="fa fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="3" class="bg-primary text-center" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+</tr>
+{% endfor %}

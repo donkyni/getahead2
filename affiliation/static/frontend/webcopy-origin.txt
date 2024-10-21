@@ -1,0 +1,924 @@
+Uri: https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\css2
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&display=swap
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\css2-1
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/lato/v24/S6u8w4BMUTPHjxswWw.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\lato\v24\S6u8w4BMUTPHjxswWw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh50Xew8.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\lato\v24\S6u9w4BMUTPHh50Xew8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh6UVew8.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\lato\v24\S6u9w4BMUTPHh6UVew8.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHvxk.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\lato\v24\S6uyw4BMUTPHvxk.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v24/S6u_w4BMUTPHjxsI3wiPHA.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\lato\v24\S6u_w4BMUTPHjxsI3wiPHA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v24/S6u_w4BMUTPHjxsI5wqPHA.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\lato\v24\S6u_w4BMUTPHjxsI5wqPHA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/lato/v24/S6u_w4BMUTPHjxsI9w2PHA.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\lato\v24\S6u_w4BMUTPHjxsI9w2PHA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/spartan/v18/l7gAbjR61M69yt8Z8w6FZf9WoBxdBrFbvm6O.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\spartan\v18\l7gAbjR61M69yt8Z8w6FZf9WoBxdBrFbvm6O.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/spartan/v18/l7gAbjR61M69yt8Z8w6FZf9WoBxdBrFivm6O.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\spartan\v18\l7gAbjR61M69yt8Z8w6FZf9WoBxdBrFivm6O.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/spartan/v18/l7gAbjR61M69yt8Z8w6FZf9WoBxdBrG3uW6O.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\spartan\v18\l7gAbjR61M69yt8Z8w6FZf9WoBxdBrG3uW6O.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/spartan/v18/l7gAbjR61M69yt8Z8w6FZf9WoBxdBrGFuW6O.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\spartan\v18\l7gAbjR61M69yt8Z8w6FZf9WoBxdBrGFuW6O.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/spartan/v18/l7gAbjR61M69yt8Z8w6FZf9WoBxdBrHbuW6O.ttf
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\s\spartan\v18\l7gAbjR61M69yt8Z8w6FZf9WoBxdBrHbuW6O.ttf
+Content Type: font/ttf
+
+Uri: https://unpkg.com/leaflet@1.7.1/dist/images/layers-2x.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\leaflet@1.7.1\dist\images\layers-2x.png
+Content Type: image/png
+
+Uri: https://unpkg.com/leaflet@1.7.1/dist/images/layers.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\leaflet@1.7.1\dist\images\layers.png
+Content Type: image/png
+
+Uri: https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\leaflet@1.7.1\dist\images\marker-icon.png
+Content Type: image/png
+
+Uri: https://unpkg.com/leaflet@1.7.1/dist/leaflet.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\leaflet@1.7.1\dist\leaflet.css
+Content Type: text/css
+
+Uri: https://unpkg.com/leaflet@1.7.1/dist/leaflet.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\leaflet@1.7.1\dist\leaflet.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/main.css?v=3.4
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\main.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/plugins/jquery-ui.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\plugins\jquery-ui.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/plugins/magnific-popup.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\plugins\magnific-popup.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/plugins/perfect-scrollbar.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\plugins\perfect-scrollbar.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/plugins/select2.min.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\plugins\select2.min.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/plugins/slick.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\plugins\slick.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/vendors/bootstrap.min.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\vendors\bootstrap.min.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/vendors/evara-font.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\vendors\evara-font.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/vendors/normalize.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\vendors\normalize.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/css/vendors/uicons-regular-straight.css
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\css\vendors\uicons-regular-straight.css
+Content Type: text/css
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/evara-font/evara-font.eot?5ff2f70882bedebb09d812961feeb5e7
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\evara-font\evara-font.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/evara-font/evara-font.svg?5ff2f70882bedebb09d812961feeb5e7
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\evara-font\evara-font.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/evara-font/evara-font.ttf?5ff2f70882bedebb09d812961feeb5e7
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\evara-font\evara-font.ttf
+Content Type: font/ttf
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/evara-font/evara-font.woff2?5ff2f70882bedebb09d812961feeb5e7
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\evara-font\evara-font.woff2
+Content Type: font/woff2
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/evara-font/evara-font.woff?5ff2f70882bedebb09d812961feeb5e7
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\evara-font\evara-font.woff
+Content Type: font/woff
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/uicons/uicons-regular-straight.eot
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\uicons\uicons-regular-straight.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/uicons/uicons-regular-straight.woff
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\uicons\uicons-regular-straight.woff
+Content Type: font/woff
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/fonts/uicons/uicons-regular-straight.woff2
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\fonts\uicons\uicons-regular-straight.woff2
+Content Type: font/woff2
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-1.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-1.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-10.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-10.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-11.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-11.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-2.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-2.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-3.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-3.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-4.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-4.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-5.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-5.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-6.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-6.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-7.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-7.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-8.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-8.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/banner-9.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\banner-9.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/brand-1.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\brand-1.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/brand-2.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\brand-2.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/brand-3.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\brand-3.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/brand-4.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\brand-4.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/brand-5.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\brand-5.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/brand-6.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\brand-6.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-3.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-3.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-4.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-4.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-5.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-5.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-6.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-6.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-7.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-7.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-7.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-7.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner-8.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner-8.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/banner/menu-banner.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\banner\menu-banner.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-10.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-10.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-3.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-3.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-4.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-4.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-5.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-5.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-6.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-6.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-8.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-8.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/blog/blog-9.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\blog\blog-9.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/about-1.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\about-1.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-3.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-3.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-4.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-4.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-5.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-5.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-6.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-6.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-7.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-7.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/avatar-8.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\avatar-8.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/company-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\company-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/company-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\company-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/company-3.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\company-3.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/page/img-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\page\img-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-3.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-3.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-4.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-4.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-5.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-5.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-6.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-6.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-7.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-7.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/category-thumb-8.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\category-thumb-8.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-1-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-1-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-1-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-1-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-10-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-10-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-10-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-10-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-11-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-11-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-11-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-11-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-12-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-12-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-12-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-12-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-13-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-13-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-13-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-13-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-14-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-14-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-14-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-14-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-15-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-15-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-15-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-15-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-16-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-16-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-16-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-16-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-16-3.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-16-3.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-16-4.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-16-4.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-16-5.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-16-5.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-16-6.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-16-6.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-16-7.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-16-7.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-2-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-2-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-2-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-2-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-3-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-3-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-3-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-3-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-4-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-4-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-4-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-4-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-5-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-5-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-5-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-5-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-6-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-6-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-6-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-6-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-7-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-7-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-7-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-7-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-8-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-8-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-8-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-8-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-9-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-9-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/product-9-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\product-9-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-1.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-1.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-2.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-2.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-3.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-3.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-4.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-4.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-5.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-5.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-6.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-6.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-7.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-7.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-8.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-8.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/shop/thumbnail-9.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\shop\thumbnail-9.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/slider/slider-1.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\slider\slider-1.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/slider/slider-2.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\slider\slider-2.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/slider/slider-3.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\slider\slider-3.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/slider/slider-4.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\slider\slider-4.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/slider/slider-5.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\slider\slider-5.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/slider/slider-6.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\slider\slider-6.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/slider/slider-7.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\slider\slider-7.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/404.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\404.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/app-store.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\app-store.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/btn-brush-bg-1.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\btn-brush-bg-1.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/btn-brush-bg-2.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\btn-brush-bg-2.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/btn-brush-bg-3.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\btn-brush-bg-3.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/favicon.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\favicon.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/flag-dt.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\flag-dt.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/flag-fr.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\flag-fr.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/flag-ru.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\flag-ru.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/google-play.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\google-play.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/feature-1.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\feature-1.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/feature-2.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\feature-2.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/feature-3.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\feature-3.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/feature-4.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\feature-4.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/feature-5.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\feature-5.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/feature-6.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\feature-6.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-cart.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-cart.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-email.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-email.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-facebook.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-facebook.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-heart.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-heart.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-instagram.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-instagram.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-pinterest.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-pinterest.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-twitter.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-twitter.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/icon-youtube.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\icon-youtube.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/icons/search.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\icons\search.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/logo.svg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\logo.svg
+Content Type: image/svg+xml
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/payment-method.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\payment-method.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/rating-stars.png
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\rating-stars.png
+Content Type: image/png
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/imgs/theme/topbar-bg.jpg
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\imgs\theme\topbar-bg.jpg
+Content Type: image/jpeg
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/main.js?v=3.4
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\main.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/counterup.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\counterup.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/images-loaded.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\images-loaded.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/isotope.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\isotope.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/jquery-ui.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\jquery-ui.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/jquery.countdown.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\jquery.countdown.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/jquery.elevatezoom.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\jquery.elevatezoom.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/jquery.syotimer.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\jquery.syotimer.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/jquery.theia.sticky.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\jquery.theia.sticky.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/jquery.vticker-min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\jquery.vticker-min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/leaflet.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\leaflet.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/magnific-popup.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\magnific-popup.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/perfect-scrollbar.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\perfect-scrollbar.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/scrollup.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\scrollup.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/select2.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\select2.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/slick.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\slick.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/waypoints.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\waypoints.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/plugins/wow.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\plugins\wow.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/shop.js?v=3.4
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\shop.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/vendor/bootstrap.bundle.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\vendor\bootstrap.bundle.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/vendor/jquery-3.6.0.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\vendor\jquery-3.6.0.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/vendor/jquery-migrate-3.3.0.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\vendor\jquery-migrate-3.3.0.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/assets/js/vendor/modernizr-3.6.0.min.js
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\assets\js\vendor\modernizr-3.6.0.min.js
+Content Type: application/javascript
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/blog-category-big.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\blog-category-big.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/blog-category-fullwidth.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\blog-category-fullwidth.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/blog-category-grid.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\blog-category-grid.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/blog-category-list.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\blog-category-list.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/blog-post-fullwidth.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\blog-post-fullwidth.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/blog-post-left.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\blog-post-left.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/blog-post-right.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\blog-post-right.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/index-2.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\index-2.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/index-3.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\index-3.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/index-4.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\index-4.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/index.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\index.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-404.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-404.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-about.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-about.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-account.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-account.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-contact.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-contact.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-login-register.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-login-register.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-privacy-policy.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-privacy-policy.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-purchase-guide.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-purchase-guide.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/page-terms.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\page-terms.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-cart.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-cart.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-checkout.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-checkout.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-compare.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-compare.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-filter.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-filter.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-fullwidth.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-fullwidth.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-grid-left.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-grid-left.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-grid-right.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-grid-right.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-list-left.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-list-left.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-list-right.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-list-right.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-product-full.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-product-full.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-product-left.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-product-left.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-product-right.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-product-right.html
+Content Type: text/html
+
+Uri: https://wp.alithemes.com/html/evara/evara-frontend/shop-wishlist.html
+File Name: C:\Downloaded Web Sites\wp.alithemes.com\html\evara\evara-frontend\shop-wishlist.html
+Content Type: text/html
+

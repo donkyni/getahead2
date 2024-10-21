@@ -1,0 +1,16 @@
+<svg width="100" height="100" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cercle pour la tête -->
+  <circle cx="100" cy="60" r="40" fill="#6BAED6" stroke="#1D4E85" stroke-width="4" />
+
+  <!-- Demi-cercle pour les épaules -->
+  <path d="M40 130 A60 60 0 0 1 160 130" fill="#6BAED6" stroke="#1D4E85" stroke-width="4"/>
+
+  <!-- Partie inférieure des épaules avec un dégradé plus clair -->
+  <path d="M60 130 A40 40 0 0 1 140 130 Q100 160 60 130" fill="#B3D7F2"/>
+
+  <!-- Contour de l'icône -->
+  <circle cx="100" cy="60" r="46" fill="none" stroke="#1D4E85" stroke-width="4" />
+
+  <!-- Arc intérieur pour ajouter des détails au visage -->
+  <path d="M90 50 Q100 40 110 50" stroke="#1D4E85" stroke-width="4" fill="none"/>
+</svg>

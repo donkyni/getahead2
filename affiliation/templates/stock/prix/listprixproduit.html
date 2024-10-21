@@ -1,0 +1,20 @@
+{% for prixproduit in prixproduits %}
+<tr>
+    <td><a href="javascript:void(0);"><strong>{{prixproduit.id}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong>{{prixproduit.produit}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong>{{prixproduit.prix}}</strong></a></td>
+    <td>
+        <div class="d-flex">
+            <button class="btn btn-primary shadow btn-xs sharp me-1 show-form-update" data-url="{% url 'updateprixproduit' prixproduit.id %}"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-danger shadow btn-xs sharp show-form-delete" data-url="{% url 'deleteprixproduit' prixproduit.id %}"><i class="fa fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun prix n'est disponible</td>
+    <td colspan="4" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun prix n'est disponible</td>
+    <td colspan="4" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun prix n'est disponible</td>
+    <td colspan="4" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun prix n'est disponible</td>
+</tr>
+{% endfor %}

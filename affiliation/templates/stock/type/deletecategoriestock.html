@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+<form method="post" data-url="{% url 'deletecategoriestock' categorie.id %}" class="delete-form">
+	{% csrf_token %}
+		<div class="modal-header">
+			<h5 class="modal-title">Supprimer cette catégorie</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		</div>
+		<div class="modal-body">
+			<p class="lead">Êtes-vous sûre de vouloir supprimer la catégorie <b>{{categorie.libelle}}</b></p>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Fermer</button>
+			<button type="submit" class="btn btn-primary">Supprimer</button>
+		</div>
+</form>

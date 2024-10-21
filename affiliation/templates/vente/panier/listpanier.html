@@ -1,0 +1,17 @@
+{% for item in articlespanier %}
+<tr>
+    <td>{{item.id}}</td>
+    <td><a href="javascript:void(0);"><strong>{{item.produit.produit.libelle}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong>{{item.quantite}}</strong></a></td>
+    <td>
+        <div class="d-flex">
+            <button class="btn btn-primary shadow btn-xs sharp me-1 show-form-update" data-url="{% url 'updatepanier' item.id %}"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-danger shadow btn-xs sharp show-form-delete" data-url="{% url 'deletearticlepanier' item.id %}"><i class="fa fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="4" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun article n'est ajouté au panier</td>
+</tr>
+{% endfor %}

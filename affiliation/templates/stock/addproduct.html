@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<!-- FAVICONS ICON -->
+<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+<link rel="stylesheet" href="{% static 'vendor/chartist/css/chartist.min.css' %}">
+<link href="{% static 'vendor/wow-master/css/libs/animate.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'vendor/select2/css/select2.min.css' %}">
+
+<!-- Style css -->
+<link href="../css2?family=Material+Icons" rel="stylesheet">
+<!-- Style css -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Gestion des stocks</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Ajouter un produit</li>
+                </ol>
+              </nav>
+        </div>
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div>
+                    <a href="{% url 'stock' %}" class="btn btn-sm btn-primary mb-4">Stock produit</a>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card h-auto">
+                            <div class="card-body">
+                                {% load crispy_forms_tags %}
+                                <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        {{ p_form|crispy }}
+                                    </div>
+                                    <button type="submit" class="btn btn-rounded btn-primary">
+                                        <span class="btn-icon-start text-primary">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </span>
+                                        Ajouter le produit
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="right-sidebar-sticky">
+                            <div class="filter cm-content-box box-primary">
+                                <div class="content-title SlideToolHeader">
+                                    <div class="cpa">
+                                        Produits récent
+                                    </div>
+                                    <div class="tools">
+                                        <a href="javascript:void(0);" class="expand handle"><i class="fal fa-angle-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="cm-content-body publish-content form excerpt">
+                                    <div class="card-body py-3">
+                                        <ul class="list-style-1 block">
+                                            <li>
+                                                <div>
+                                                    <label class="form-label mb-0 me-2">
+                                                        <i class="fa-solid fa-calendar"></i>
+                                                        Total :
+                                                    </label>
+                                                    <span class="font-w500">{{count_product}}</span>
+                                                </div>
+                                            </li>
+                                            <li class="border-bottom-0">
+                                                <div>
+                                                    <label class="form-label mb-0 me-2">
+                                                        <i class="fa-solid fa-bowling-ball"></i>
+                                                        Quantité total :
+                                                    </label>
+                                                    <span class="font-w500">{{count_quantity}}</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer border-top text-end py-3 ">
+                                        <a href="javascript:void(0);" class="btn btn-primary btn-sm">Liste des produits</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+	<script src="{% static 'vendor/global/global.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-datepicker-master/js/bootstrap-datepicker.min.js' %}"></script>
+
+	<!--select plugins-file-->
+	<script src="{% static 'vendor/select2/js/select2.full.min.js' %}"></script>
+	<script src="{% static 'js/plugins-init/select2-init.js' %}"></script>
+
+	<!-- ck-editor -->
+	<script src="{% static 'vendor/ckeditor/ckeditor.js' %}"></script>
+
+	<!-- Dashboard 1 -->
+	<script src="{% static 'js/dashboard/cms.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+	<script src="{% static 'js/dlabnav-init.js' %}"></script>
+	<script src="{% static 'js/demo.js' %}"></script>
+    <script src="{% static 'js/styleSwitcher.js' %}"></script>
+
+	<script>
+		function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload").on('change',function() {
+
+            readURL(this);
+        });
+        $('.remove-img').on('click', function() {
+            var imageUrl = "images/no-img-avatar.png";
+            $('.avatar-preview, #imagePreview').removeAttr('style');
+            $('#imagePreview').css('background-image', 'url(' + imageUrl + ')');
+        });
+    </script>
+{% endblock %}

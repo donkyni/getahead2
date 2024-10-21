@@ -1,0 +1,26 @@
+{% for product in products %}
+<tr>
+    <td>{{product.id}}</td>
+    <td>{{product.codeproduit}}</td>
+    <td>{{product.libelle}}</td>
+    <td>{{product.categorie}}</td>
+    <td><a href="javascript:void(0);"><strong>{{product.quantite}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong>{{product.madein}}</strong></a></td>
+    <td>
+        <div class="d-flex">
+            <button class="btn btn-primary shadow btn-xs sharp me-1 show-form-update" data-url="{% url 'updatestock' product.id %}"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-danger shadow btn-xs sharp show-form-delete" data-url="{% url 'deletestock' product.id %}"><i class="fa fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun produit n'est disponible</td>
+    <td hidden="hidden" colspan="7" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun produit n'est disponible</td>
+    <td hidden="hidden" colspan="7" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun produit n'est disponible</td>
+    <td hidden="hidden" colspan="7" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun produit n'est disponible</td>
+    <td hidden="hidden" colspan="7" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun produit n'est disponible</td>
+    <td hidden="hidden" colspan="7" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun produit n'est disponible</td>
+    <td hidden="hidden" colspan="7" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucun produit n'est disponible</td>
+</tr>
+{% endfor %}

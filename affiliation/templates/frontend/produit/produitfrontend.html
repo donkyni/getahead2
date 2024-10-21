@@ -1,0 +1,215 @@
+{% extends 'frontend/basefront.html' %}
+{% load static %}
+
+{% block link %}
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#" rel="nofollow">Accueil</a>
+                <span></span> Produit
+            </div>
+        </div>
+    </div>
+    <section class="mt-50 mb-50">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-9">
+                    <!--
+                    <div class="shop-product-fillter">
+                        <div class="totall-product">
+                            <--
+                            <p> Nous avons trouvé <strong class="text-brand">688</strong> articles pour vous !</p>
+                            --
+                        </div>
+                        <div class="sort-by-product-area">
+                            <div class="sort-by-cover mr-10">
+                                <div class="sort-by-product-wrap">
+                                    <div class="sort-by">
+                                        <span><i class="fi-rs-apps"></i>Afficher :</span>
+                                    </div>
+                                    <div class="sort-by-dropdown-wrap">
+                                        <span> 50 <i class="fi-rs-angle-small-down"></i></span>
+                                    </div>
+                                </div>
+                                <div class="sort-by-dropdown">
+                                    <ul>
+                                        <li><a class="active" href="#">50</a></li>
+                                        <li><a href="#">100</a></li>
+                                        <li><a href="#">150</a></li>
+                                        <li><a href="#">200</a></li>
+                                        <li><a href="#">All</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sort-by-cover">
+                                <div class="sort-by-product-wrap">
+                                    <div class="sort-by">
+                                        <span><i class="fi-rs-apps-sort"></i>Filtrer par :</span>
+                                    </div>
+                                    <div class="sort-by-dropdown-wrap">
+                                        <span> Featured <i class="fi-rs-angle-small-down"></i></span>
+                                    </div>
+                                </div>
+                                <div class="sort-by-dropdown">
+                                    <ul>
+                                        <li><a class="active" href="#">Featured</a></li>
+                                        <li><a href="#">Price: Low to High</a></li>
+                                        <li><a href="#">Price: High to Low</a></li>
+                                        <li><a href="#">Release Date</a></li>
+                                        <li><a href="#">Avg. Rating</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- Modal d'ajout réussi -->
+                    {% if ajout_reussi %}
+                    <div style="font-size:16px" class="alert alert-primary alert-dismissible alert-alt fade show">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                            <span><i class="fa-solid fa-xmark"></i></span>
+                        </button>
+                        <strong>Succès !</strong> L'article a été ajouté au panier.
+                        <strong class="text-right"><a href="{% url 'voir_panierfrontend' %}" style="color:#01A3FF">Voir mon panier <i class="fa-solid fa-angle-right"></i></a></strong>
+                    </div>
+                    {% endif %}
+
+                    <!-- Modal d'ajout réussi -->
+                    {% if valider_commande %}
+                    <div style="font-size:16px" class="alert alert-success alert-dismissible alert-alt fade show">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                            <span><i class="fa-solid fa-xmark"></i></span>
+                        </button>
+                        <strong>Succès !</strong> Commande envoyé avec succès.
+                        <strong class="text-right"><a href="{% url 'profile' %}" style="color:#01A3FF">Suivre mes commandes <i class="fa-solid fa-angle-right"></i></a></strong>
+                    </div>
+                    {% endif %}
+
+                    <div class="row product-grid-3">
+                        {% for product in produits %}
+                        <div class="col-lg-4 col-md-4 col-12 col-sm-6">
+                            <div class="product-cart-wrap mb-30">
+                                <div class="product-img-action-wrap">
+                                    <div class="product-img product-img-zoom">
+                                        <a href="{% url 'detailproduitfrontend' product.id %}">
+                                            {% if product.produit.image1 != None%}
+                                            <img class="default-img" src="{{product.produit.image1.url}}" alt="">
+                                                {% if product.produit.image2 != None %}
+                                                <img class="hover-img" src="{{product.produit.image1.url}}" alt="">
+                                                {% endif %}
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                    <!--
+                                    <div class="product-action-1">
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                    </div>
+                                    -->
+                                    <!-- EN VEDETTE : POUR LES PRODUITS IMPORTANT
+                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                        <span class="hot">Vedette</span>
+                                    </div>
+                                    -->
+                                </div>
+                                <div class="product-content-wrap">
+                                    <div class="product-category">
+                                        <a href="shop-grid-right.html">{{product.produit.categorie}}</a>
+                                    </div>
+                                    <h2><a href="{% url 'detailproduitfrontend' product.id %}">{{product.produit}}</a></h2>
+                                    <div class="product-price">
+                                        <span>{{product.prix}} FCFA</span>
+                                        {% if product.ancien_prix %}
+                                        <span class="old-price">{{product.ancien_prix}}</span>
+                                        {% endif %}
+                                    </div>
+                                    <!-- ceci permettra de directement ajouter un produit dans le panier
+                                    <div class="product-action-1 show">
+                                        <a aria-label="Ajoutez" class="action-btn hover-up" href="javascript:void(0)"><i class="fi-rs-shopping-bag-add"></i></a>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="col-lg-4 col-md-4 col-12 col-sm-6">
+                            <div class="product-cart-wrap mb-10">
+                                <div class="product-content-wrap">
+                                    <h2 class="mt-5"><a>Aucun produit n'est disponible pour le moment</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!--pagination--
+                    <div class="pagination-area mt-15 mb-sm-5 mb-lg-0">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-start">
+                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                                <li class="page-item"><a class="page-link" href="#">02</a></li>
+                                <li class="page-item"><a class="page-link" href="#">03</a></li>
+                                <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">16</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fi-rs-angle-double-small-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    -->
+                </div>
+                <div class="col-lg-3 primary-sidebar sticky-sidebar">
+                    <div class="widget-category mb-30">
+                        <h5 class="section-title style-1 mb-30 wow fadeIn animated">Catégories</h5>
+                        <ul class="categories">
+                            {% for categorie in all_categorie %}
+                            <li><a href="javascript:void(0)">{{categorie}}</a></li>
+                            {% empty %}
+                            <li><a href="javascript:void(0)">Aucune catégorie</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Product sidebar Widget -->
+                    <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
+                        <div class="widget-header position-relative mb-20 pb-10">
+                            <h5 class="widget-title mb-10">Nouveau produits</h5>
+                            <div class="bt-1 border-color-1"></div>
+                        </div>
+                        {% for vedette in vedettes %}
+                        <div class="single-post clearfix">
+                            <!--
+                            <div class="image">
+                                <img src="{% static 'html/evara/evara-frontend/assets/imgs/shop/thumbnail-3.jpg' %}" alt="#">
+                            </div>
+                            -->
+                            <div class="pt-10">
+                                <h5><a href="javascript:void(0)">{{vedette.produit}}</a></h5>
+                                <p class="price mb-0 mt-5">{{vedette.prix}}</p>
+                                <!--
+                                <div class="product-rate">
+                                    <div class="product-rating" style="width:90%"></div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="single-post clearfix">
+                            <div class=" pt-10">
+                                <h5><a href="javascript:void(0)">Rien à afficher</a></h5>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

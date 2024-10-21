@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Payements</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <h3>Voulez-vous rester ou quitter le système de parrainage ?</h3>
+    <button type="submit" name="decision" value="rester">Rester</button>
+    <button type="submit" name="decision" value="quitter">Quitter</button>
+</form>
+</body>
+</html>

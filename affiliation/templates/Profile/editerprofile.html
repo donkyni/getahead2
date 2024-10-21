@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- FAVICONS ICON -->
+<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<!--swiper-slider-->
+<link rel="stylesheet" href="{% static 'vendor/swiper/css/swiper-bundle.min.css' %}">
+<!-- Datatable -->
+<link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/datatables/responsive/responsive.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+  <link href="../css2?family=Material+Icons" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="content-body default-height mh-auto">
+    <div class="container-fluid">
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-titles">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Mon compte</a></li>
+                        <li class="breadcrumb-item active" aria-current="page" style="font-size:15px">{{request.user}}</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8 col-xxl-8">
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card pie-chart2">
+                                    <div class="card-header border-0">
+                                        <h2 class="card-title">Modifier les informations du compte</h2>
+                                    </div>
+
+                                    <div class="card-body">
+                                        {% load crispy_forms_tags %}
+                                        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                {{ u_form.nom_d_utilisateur|as_crispy_field }}
+                                            </div>
+                                            {{ u_form.nom|as_crispy_field }}
+                                            {{ u_form.prenom|as_crispy_field }}
+                                            {{ u_form.mail|as_crispy_field }}
+                                            {{ u_form.telephone|as_crispy_field }}
+                                            {{ u_form.avatar|as_crispy_field }}
+                                            {{ u_form.annee_de_naissance|as_crispy_field }}
+                                            {{ u_form.pays|as_crispy_field }}
+                                            {{ u_form.sexe|as_crispy_field }}
+                                            <hr>
+                                            <div class="social-auth-links text-center mb-3">
+                                                <input type="submit" class="btn btn-block btn-primary"
+                                                       value="Modifier vos informations de compte">
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xl-4 col-xxl-4">
+                        <!--row-->
+                        <div class="col-xl-12">
+                            <div class="clearfix">
+                                <div class="card card-bx profile-card author-profile m-b30">
+                                    <div class="card-body">
+                                        <div class="p-5">
+                                            <div class="author-profile">
+                                                <div class="author-media">
+                                                    <img src="{% static 'images/icons-user-profile-social-blue2.png' %}" alt="">
+                                                    <!-- bouton pour uploader image
+                                                    <div class="upload-link" title="" data-toggle="tooltip" data-placement="right" data-original-title="update">
+                                                        <input type="file" class="update-flie">
+                                                        <i class="fa fa-camera"></i>
+                                                    </div>
+                                                    -->
+                                                </div>
+                                                <div class="author-info">
+                                                    <h6 class="title" style="font-size:20px">{{request.user}}</h6>
+                                                    {% if request.user.is_admin %}
+                                                    <span style="font-size:15px">Administrateur</span>
+                                                    {% else %}
+                                                    <span style="font-size:15px">Utilisateur</span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info-list">
+                                            <ul>
+                                                <li><a href="javascript:void(0)">Groupe</a><span>{{request.user.groupe}}</span></li>
+                                                <li><a href="javascript:void(0)">Nombre de parrainé</a><span>{{request.user.nb_pers_amene}}</span></li>
+                                                <li><a href="javascript:void(0)">As déjà fini tous les paliers</a><span>{{request.user.palier_recommence}}</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="input-group">
+                                            <a style="font-size:18px" href="#" class="form-control text-primary rounded text-center">Parrainez un proche</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row-->
+                    </div>
+                </div>
+            </div>
+            <!--/column-->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!-- Required vendors -->
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/chart-js/chart.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+
+<!-- Chart piety plugin files -->
+<script src="{% static 'vendor/peity/jquery.peity.min.js' %}"></script>
+<script src="{% static 'js/user.js' %}"></script>
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/dlabnav-init.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script src="{% static 'js/styleSwitcher.js' %}"></script>
+
+<!-- Datatable -->
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/responsive/responsive.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+<script src="{% static 'js/modalpanier.js' %}"></script>
+{% endblock %}
