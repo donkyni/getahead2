@@ -12,7 +12,7 @@ from affiliation.models import Produit, CategorieProduit, PrixProduit, Panier, A
 from django.contrib.auth.decorators import login_required
 
 
-import decimal
+import decimal # decimal
 
 def decimal_to_float(val):
     if isinstance(val, decimal.Decimal):
