@@ -48,6 +48,12 @@ urlpatterns = [
         url(r'^mon-espace-membre', views.profile, name="profile"),
         url(r'^modifier-les-informations-du-compte', views.editerprofile, name="editerprofile"),
         url(r'^(?P<id>\d+)/attribuer-un-payement-a-un-membre$', views.paydash, name="paydash"),
-        url(r'^création-d-un-nouvel-utilisateur', views.user_creation, name="user_creation"),
+        url(r'^creation-d-un-nouvel-utilisateur', views.user_creation, name="user_creation"),
+
+        # Gestion des groupes
+        url(r'^liste-affichage-groupes-utilisateurs$', views.groupe, name="groupe"),
+        url(r'^creation-de-groupe-utilisateur$', views.addgroupe, name="addgroupe"),
+        url(r'^(?P<id>\d+)/modifier-le-groupe-utilisateur$', views.updategroupe, name="updategroupe"),
+        url(r'^(?P<id>\d+)/retirer-le groupe-utilisateur$', views.deletegroupe, name="deletegroupe"),
 
 ]

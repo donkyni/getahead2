@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 
 from affiliation.forms import ProduitForm, CategorieProduitForm, PrixProduitForm, ArticlePanierForm, UserUpdateForm, \
-    PayDashForm, UserCreation20Form
+    PayDashForm, UserCreation20Form, GroupeForm
 from .forms import SelectionUtilisateurForm
 from affiliation.models import Produit, CategorieProduit, PrixProduit, Panier, ArticlePanier, HistoriqueVente, User, \
     Palier, Payement, Groupe
@@ -173,6 +173,22 @@ def soumettre_panierfrontend(request):
 
     historique.save()
 
+    # notification
+    from twilio.rest import Client
+
+    account_sid = 'AC8e0f4e9d59b7a1887f08def044059605'
+    auth_token = 'afaf81b9e5129891a66398e661ed9d35'
+    client = Client(account_sid, auth_token)
+
+    message = client.messages.create(
+        from_='whatsapp:+14155238886',
+        content_sid='HXb5b62575e6e4ff6129ad7c8efe1f983e',
+        content_variables='{"1":"12/1","2":"3pm"}',
+        to='whatsapp:+22893874163'
+    )
+
+    print(message.sid)
+
     # Vider le panier associé
     utilisateur = request.user
     panieravider = Panier.objects.filter(utilisateur=utilisateur)
@@ -221,7 +237,7 @@ def dash(request):
     commande_en_attente_count = HistoriqueVente.objects.filter(statut="En attente").count()
     categorie_count = CategorieProduit.objects.filter(archive=False).count()
     produit_count = Produit.objects.filter(archive=False).count()
-    payement_count = Payement.objects.filter(statut=False).count()
+    payement_count = Payement.objects.filter(statut=True).count()
     payements = Payement.objects.filter(statut=False)
     groupe_count = Groupe.objects.filter(archive=False).count()
     users_count_is_admin = User.objects.filter(is_admin=True).count()
@@ -786,7 +802,7 @@ def editerprofile(request):
     else:
         u_form = UserUpdateForm(instance=request.user)
 
-    return render(request, 'profile/editerprofile.html', locals())
+    return render(request, 'Profile/editerprofile.html', locals())
 
 
 """
@@ -967,3 +983,56 @@ def change_password(request, id):
         'user_u': user_u
     })
 """
+
+
+@login_required
+def groupe(request):
+    groupes = Groupe.objects.filter(archive=False)
+
+    return render(request, 'groupe/groupe.html', locals())
+
+
+@login_required
+def addgroupe(request):
+    groupes = Groupe.objects.filter(archive=False)
+    if request.method == 'POST':
+        form = GroupeForm(request.POST)
+    else:
+        form = GroupeForm()
+    mycontext = {'groupes': groupes, 'form': form}
+    return save_all(request, form, 'groupe/addgroupe.html', 'groupe',
+                    'groupe/listgroupe.html', mycontext)
+
+
+@login_required
+def updategroupe(request, id):
+    groupes = Groupe.objects.filter(archive=False)
+    mycontext = {
+        'groupes': groupes
+    }
+    groupe = get_object_or_404(Groupe, id=id)
+    if request.method == 'POST':
+        form = GroupeForm(request.POST, instance=groupe)
+    else:
+        form = GroupeForm(instance=groupe)
+    return save_all(request, form, 'groupe/updategroupe.html', 'groupe',
+                    'groupe/listgroupe.html', mycontext)
+
+
+@login_required
+def deletegroupe(request, id):
+    data = dict()
+    groupe = get_object_or_404(Groupe, id=id)
+    if request.method == "POST":
+        groupe.archive = True
+        groupe.save()
+        data['form_is_valid'] = True
+        groupes = Groupe.objects.filter(archive=False)
+        data['groupe'] = render_to_string('groupe/listgroupe.html', {'groupes': groupes})
+    else:
+        context = {
+            'groupe': groupe
+        }
+        data['html_form'] = render_to_string('groupe/deletegroupe.html', context, request=request)
+
+    return JsonResponse(data)

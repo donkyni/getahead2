@@ -317,7 +317,7 @@ class Payement(models.Model):
     montant = models.DecimalField(max_digits=10, decimal_places=2)
     type_don = models.CharField(max_length=50)
     palier = models.CharField(max_length=50)
-    statut = models.BooleanField(default=True, null=True)
+    statut = models.BooleanField(default=False, null=True)
     date_creation = models.DateTimeField(auto_now_add=True)
 
 

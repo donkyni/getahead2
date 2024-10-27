@@ -141,3 +141,8 @@ AUTH_USER_MODEL = 'affiliation.User'
 
 LOGIN_REDIRECT_URL = 'produitfrontend'
 LOGIN_URL = 'login'
+
+# Twilio settings
+# TWILIO_SID = 'AC8e0f4e9d59b7a1887f08def044059605'
+# TWILIO_AUTH_TOKEN = 'afaf81b9e5129891a66398e661ed9d35'
+# ADMIN_WHATSAPP_NUMBER = '22893874163'  # Exemple: 22893344075

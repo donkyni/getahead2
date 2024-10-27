@@ -1,0 +1,20 @@
+{% for groupe in groupes %}
+<tr>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{groupe.id}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{groupe.nom_du_groupe}}</strong></a></td>
+    <td><a href="javascript:void(0);"><strong style="font-size:15px">{{groupe.manageur_du_groupe}}</strong></a></td>
+    <td>
+        <div class="d-flex">
+            <button class="btn btn-primary shadow btn-xs sharp me-1 show-form-update" data-url="{% url 'updategroupe' groupe.id %}"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-danger shadow btn-xs sharp show-form-delete" data-url="{% url 'deletegroupe' groupe.id %}"><i class="fa fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="3" class="bg-primary text-center" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+    <td colspan="3" hidden="hidden" class="text-center bg-primary" style="font-weight:bold;font-size:15px">Aucune catégorie de produit n'est disponible</td>
+</tr>
+{% endfor %}

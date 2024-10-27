@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- FAVICONS ICON -->
+<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+<!-- Datatable -->
+<link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/datatables/responsive/responsive.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+<!-- Custom Stylesheet -->
+
+  <link href="../css2?family=Material+Icons" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-titles">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Gestion des utilisateurs</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Liste utilisateurs</li>
+                          <li class="breadcrumb-item active" aria-current="page">Gestion du groupe</li>
+                        </ol>
+                      </nav>
+                </div>
+            </div>
+            <div class="col-12">
+                <div>
+                    <button data-url="{% url 'addgroupe' %}" class="btn btn-sm btn-primary mb-4 show-form">
+                        <i class="fas fa-plus"></i> &nbsp; Ajouter le groupe
+                    </button>
+                    <a href="{% url 'user_creation' %}" class="btn btn-sm btn-secondary mb-4">
+                        <i class="fas fa-angle-left"></i> &nbsp; Retour
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Liste total des groupe</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example3" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>nom_du_groupe</th>
+                                        <th>manageur_du_groupe</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% include "groupe/listgroupe.html" %}
+                                </tbody>
+                            </table>
+
+                            <!-- Popup ajouter nouvelle personne -->
+                            <div class="modal fade" id="modal-groupe">
+                                <div class="modal-dialog">
+                                    <div class="modal-content"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!--**********************************
+    Scripts
+***********************************-->
+<!-- Required vendors -->
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/chart-js/chart.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+<!-- Apex Chart -->
+<script src="{% static 'vendor/apexchart/apexchart.js' %}"></script>
+
+<!-- Datatable -->
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/responsive/responsive.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+
+
+
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/dlabnav-init.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script src="{% static 'js/styleSwitcher.js' %}"></script>
+<script src="{% static 'js/modalgroupe.js' %}"></script>
+{% endblock %}

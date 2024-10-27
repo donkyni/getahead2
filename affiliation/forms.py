@@ -1,6 +1,6 @@
 from django import forms
 
-from affiliation.models import Produit, CategorieProduit, PrixProduit, ArticlePanier, User, Payement
+from affiliation.models import Produit, CategorieProduit, PrixProduit, ArticlePanier, User, Payement, Groupe
 
 
 class DateInput(forms.DateInput):
@@ -50,7 +50,9 @@ class PayDashForm(forms.ModelForm):
 
 
 class SelectionUtilisateurForm(forms.Form):
-    utilisateur = forms.ModelChoiceField(queryset=User.objects.all(), label="Sélectionnez un utilisateur")
+    utilisateur = forms.ModelChoiceField(queryset=User.objects.all(),
+                                         label="Sélectionnez un utilisateur",
+                                         widget=forms.Select(attrs={'style': 'font-size: 15px;'}))
 
 
 
@@ -92,4 +94,11 @@ class UserCreation20Form(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+
+class GroupeForm(forms.ModelForm):
+    class Meta:
+        model = Groupe
+        fields = ['nom_du_groupe', 'manageur_du_groupe']
 
