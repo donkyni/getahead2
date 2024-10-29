@@ -12,7 +12,7 @@ from affiliation.models import Produit, CategorieProduit, PrixProduit, Panier, A
 from django.contrib.auth.decorators import login_required
 
 
-import decimal # decimal
+import decimal
 
 def decimal_to_float(val):
     if isinstance(val, decimal.Decimal):
@@ -172,22 +172,6 @@ def soumettre_panierfrontend(request):
         historique.panier.add(article)
 
     historique.save()
-
-    # notification
-    from twilio.rest import Client
-
-    account_sid = 'AC8e0f4e9d59b7a1887f08def044059605'
-    auth_token = 'afaf81b9e5129891a66398e661ed9d35'
-    client = Client(account_sid, auth_token)
-
-    message = client.messages.create(
-        from_='whatsapp:+14155238886',
-        content_sid='HXb5b62575e6e4ff6129ad7c8efe1f983e',
-        content_variables='{"1":"12/1","2":"3pm"}',
-        to='whatsapp:+22893874163'
-    )
-
-    print(message.sid)
 
     # Vider le panier associé
     utilisateur = request.user
