@@ -3,7 +3,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from affiliation.models import User, DroitsProfils, Poste, Niveau, Palier, Groupe, CodePays, Droits, Profils, \
-    CategorieProduit, Produit, PrixProduit, Panier, ArticlePanier, HistoriqueVente, GetPoint, Payement
+    CategorieProduit, Produit, PrixProduit, Panier, ArticlePanier, HistoriqueVente, GetPoint, Payement, KitProduit, \
+    KitArticle
 
 """
 Gestion des utilisateurs
@@ -234,3 +235,25 @@ class PayementAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Payement, PayementAdmin)
+
+
+class KitArticleInline(admin.TabularInline):
+    model = KitArticle
+    extra = 1  # nombre de lignes vides supplémentaires à afficher
+    readonly_fields = ('prix_total',)  # prix total calculé
+    autocomplete_fields = ['produit']  # optionnel, si tu veux rechercher les produits
+
+
+@admin.register(KitProduit)
+class KitProduitAdmin(admin.ModelAdmin):
+    list_display = ('nom', 'description', 'prix_total')
+    inlines = [KitArticleInline]
+    search_fields = ('nom',)
+    readonly_fields = ('prix_total',)
+
+
+@admin.register(KitArticle)
+class KitArticleAdmin(admin.ModelAdmin):
+    list_display = ('kit', 'produit', 'quantite', 'prix_total')
+    search_fields = ('kit__nom', 'produit__produit__libelle')
+    readonly_fields = ('prix_total',)

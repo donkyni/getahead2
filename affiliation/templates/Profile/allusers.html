@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- FAVICONS ICON -->
+<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<!--swiper-slider-->
+<link rel="stylesheet" href="{% static 'vendor/swiper/css/swiper-bundle.min.css' %}">
+<!-- Datatable -->
+<link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/datatables/responsive/responsive.css' %}" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+  <link href="../css2?family=Material+Icons" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="content-body default-height mh-auto">
+    <div class="container-fluid">
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-titles">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Gestionn des utilisateurs</a></li>
+                        <li class="breadcrumb-item active" aria-current="page" style="font-size:15px">Page d'affichage des utilisateurs</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div>
+                    <a style="font-weight:bold" href="{% url 'user_creation' %}"
+                       class="btn btn-sm btn-primary mb-4">
+                        <span style="font-size:15px"><i class="fas fa-angle-left"></i></span> &nbsp;
+                            <span style="font-size:15px">Retour</span>
+                    </a>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-xxl-12">
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card pie-chart2">
+                                    <div class="card-header border-0">
+                                        <h2 class="card-title">Liste complète des utilisateurs</h2>
+                                    </div>
+
+                                    <div class="card-body py-3">
+                                        <div class="table-responsive">
+                                            <table id="example3" class="table table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="align-middle" style="font-size:16px">Compte</th>
+                                                        <th class="align-middle" style="font-size:16px">Groupe</th>
+                                                        <th class="align-middle" style="font-size:16px">Parrain</th>
+                                                        <th class="align-middle" style="font-size:16px">Points</th>
+                                                        <th class="align-middle text-end" style="font-size:16px">Palier</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="orders">
+                                                {% include "Profile/listusers.html" %}
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--/column-->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!-- Required vendors -->
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/chart-js/chart.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+
+<!-- Chart piety plugin files -->
+<script src="{% static 'vendor/peity/jquery.peity.min.js' %}"></script>
+<script src="{% static 'js/user.js' %}"></script>
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/dlabnav-init.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script src="{% static 'js/styleSwitcher.js' %}"></script>
+
+<!-- Datatable -->
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/responsive/responsive.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+<script src="{% static 'js/modalpanier.js' %}"></script>
+{% endblock %}

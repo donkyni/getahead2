@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <h2>Modifier le Kit produit — {{ kit.nom }}</h2>
+                <form method="post" id="kit-form">
+                    {% csrf_token %}
+                    {{ formset.management_form }}
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            {{ form.nom.label_tag }} {{ form.nom }}
+                        </div>
+                        <div class="col-md-8">
+                            {{ form.description.label_tag }} {{ form.description }}
+                        </div>
+                    </div>
+
+                    <h4>Articles du Kit</h4>
+                    <table class="table" id="kit-articles-table">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Quantité</th>
+                                <th>Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="formset-body">
+                            {% for subform in formset.forms %}
+                            <tr class="form-row">
+                                {{ subform.id }}  {# obligatoire pour update #}
+                                <td>{{ subform.produit }}</td>
+                                <td>{{ subform.quantite }}</td>
+                                <td>
+                                    {{ subform.DELETE }}
+                                    <label for="{{ subform.DELETE.id_for_label }}">Supprimer</label>
+                                    {# Plus de bouton JS pour les lignes existantes #}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-primary" id="add-row">Ajouter un article</button>
+                    <button type="submit" class="btn btn-success">Enregistrer les modifications</button>
+                </form>
+
+                <!-- Template pour nouvelle ligne -->
+                <table style="display:none">
+                    <tbody id="empty-form-template">
+                        <tr class="form-row">
+                            {{ formset.empty_form.DELETE }}
+                            <td>{{ formset.empty_form.produit }}</td>
+                            <td>{{ formset.empty_form.quantite }}</td>
+                            <td>
+                                <label for="{{ formset.empty_form.DELETE.id_for_label }}">Supprimer</label>
+                                <button type="button" class="btn btn-danger remove-row">-</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/chart-js/chart.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+<!-- Apex Chart -->
+<script src="{% static 'vendor/apexchart/apexchart.js' %}"></script>
+<!-- Chart piety plugin files -->
+<script src="{% static 'vendor/peity/jquery.peity.min.js' %}"></script>
+
+<!--swiper-slider-->
+<script src="{% static 'vendor/swiper/js/swiper-bundle.min.js' %}"></script>
+<!-- Dashboard 1 -->
+<script src="{% static 'js/dashboard/dashboard-1.js' %}"></script>
+<script src="{% static 'vendor/wow-master/dist/wow.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-datetimepicker/js/moment.js' %}"></script>
+<script src="{% static 'vendor/datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select-country/js/bootstrap-select-country.min.js' %}"></script>
+
+<script src="{% static 'js/dlabnav-init.js' %}"></script>
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script src="{% static 'js/styleSwitcher.js' %}"></script>
+<!-- Datatable -->
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/responsive/responsive.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+<script src="{% static 'js/modalpaydash.js' %}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const tbody = document.getElementById('formset-body');
+    const addBtn = document.getElementById('add-row');
+    const totalFormsEl = document.getElementById('id_kitarticle_set-TOTAL_FORMS');
+    const emptyTemplate = document.getElementById('empty-form-template').innerHTML;
+
+    // Ajouter une nouvelle ligne
+    addBtn.addEventListener('click', function () {
+        const formIndex = parseInt(totalFormsEl.value || 0, 10);
+        const newHtml = emptyTemplate.replace(/__prefix__/g, formIndex);
+        tbody.insertAdjacentHTML('beforeend', newHtml);
+        totalFormsEl.value = formIndex + 1;
+    });
+
+    // Supprimer une ligne via bouton pour les nouvelles lignes
+    tbody.addEventListener('click', function (e) {
+        if (e.target.matches('.remove-row')) {
+            const row = e.target.closest('tr.form-row');
+            if (row) {
+                const deleteInput = row.querySelector("input[type='checkbox'][name$='-DELETE']");
+                if (deleteInput) {
+                    deleteInput.checked = true; // coche pour suppression
+                    row.style.display = 'none';
+                } else {
+                    row.remove(); // supprime les lignes non sauvegardées
+                }
+                totalFormsEl.value = Math.max(0, parseInt(totalFormsEl.value || 0, 10) - 1);
+            }
+        }
+    });
+});
+
+</script>
+{% endblock %}

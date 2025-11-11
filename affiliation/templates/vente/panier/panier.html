@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block link %}
 <!-- Mobile Specific -->
@@ -59,6 +60,21 @@
                                         <strong>{{ total }}</strong>
                                     </li>
                                 </ul>
+
+                                <br>
+                                <!-- Formulaire de remise -->
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ remise_form.remise|as_crispy_field }}
+                                    <button type="submit" class="btn btn-primary" style="font-size:15px;font-weight:bold">Appliquer la remise</button>
+                                    <br><br>
+                                </form>
+
+                                <p style="font-size:15px"><strong>Total avant remise : </strong> <span style="font-size:15px;font-weight:bold" class="badge badge-secondary">{{ total|floatformat:2 }} </span></p>
+                                <p style="font-size:15px"><strong>Remise appliquée : </strong> <span style="font-size:15px;font-weight:bold" class="badge badge-info">-{{ remise|floatformat:2 }} </span></p>
+                                <p style="font-size:15px"><strong>Total après remise : </strong> <span style="font-size:15px;font-weight:bold" class="badge badge-success">{{ total_avec_remise|floatformat:2 }}</span>&nbsp; <span style="font-weight:bold">XOF</span></p>
+                                <br>
+
                                 <form action="{% url 'soumettre_panier' %}" method="post">
                                     {% csrf_token %}
                                     <button class="btn btn-primary btn-lg btn-block" type="submit" style="font-weight:bold">Envoyez la commande</button>

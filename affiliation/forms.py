@@ -1,6 +1,8 @@
 from django import forms
+from django.forms import inlineformset_factory
 
-from affiliation.models import Produit, CategorieProduit, PrixProduit, ArticlePanier, User, Payement, Groupe
+from affiliation.models import Produit, CategorieProduit, PrixProduit, ArticlePanier, User, Payement, Groupe, \
+    KitProduit, KitArticle
 
 
 class DateInput(forms.DateInput):
@@ -102,3 +104,53 @@ class GroupeForm(forms.ModelForm):
         model = Groupe
         fields = ['nom_du_groupe', 'manageur_du_groupe']
 
+
+class KitProduitForm(forms.ModelForm):
+    class Meta:
+        model = KitProduit
+        fields = ['nom', 'description']
+        widgets = {
+            'nom': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
+class KitArticleForm(forms.ModelForm):
+    class Meta:
+        model = KitArticle
+        fields = ['produit', 'quantite']
+        widgets = {
+            'produit': forms.Select(attrs={'class': 'form-select form-control'}),
+            'quantite': forms.NumberInput(attrs={'class': 'form-control', 'min': 1}),
+        }
+
+# Formset inline pour gérer plusieurs articles
+KitArticleFormSet = inlineformset_factory(
+    KitProduit,
+    KitArticle,
+    form=KitArticleForm,
+    extra=1,       # nombre de lignes vides par défaut
+    can_delete=True
+)
+
+
+class KitArticleUpdateForm(forms.ModelForm):
+    class Meta:
+        model = KitArticle
+        # On exclut les champs calculés
+        fields = ['produit', 'quantite']
+        widgets = {
+            'produit': forms.Select(attrs={'class': 'form-select form-control'}),
+            'quantite': forms.NumberInput(attrs={'class': 'form-control', 'min': 1}),
+        }
+
+
+KitArticleUpdateFormSet = inlineformset_factory(
+    KitProduit, KitArticle,
+    form=KitArticleUpdateForm,
+    extra=1,
+    can_delete=True
+)
+
+
+class ImportKitForm(forms.Form):
+    fichier_excel = forms.FileField(label="Fichier Excel (.xlsx)")

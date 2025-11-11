@@ -1,0 +1,21 @@
+
+{% load crispy_forms_tags %}
+<h2>Modifier la commande de {{ historique.client }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }} <!-- Inclut le champ de remise -->
+
+    <h3>Articles dans la commande</h3>
+    {% for article in articles %}
+        <div>
+            <p>{{ article.produit.nom }} - Quantité: {{ article.quantite }} - Prix: {{ article.produit.prix }}</p>
+        </div>
+    {% endfor %}
+
+    <button type="submit">Mettre à jour la commande</button>
+</form>
+
+<a href="{% url 'vente' %}">Retour à la liste des ventes</a>
+
+

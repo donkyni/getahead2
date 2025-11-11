@@ -76,7 +76,7 @@
                     <div class="card-body">
                         <div class="new-arrival-product">
                             <div class="new-arrivals-img-contnent">
-                                {% if produit.produit.image1 != None %}
+                                {% if produit.produit.image1 %}
                                 <img class="img-fluid" src="{{produit.produit.image1.url}}" alt="">
                                 {% endif %}
                             </div>

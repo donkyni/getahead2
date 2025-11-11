@@ -1,4 +1,5 @@
 import uuid
+from decimal import Decimal
 
 from django.db import models
 from django.contrib.auth import models as auth_models
@@ -230,7 +231,7 @@ class Produit(models.Model):
     libelle = models.CharField(max_length=100, verbose_name="Désignation du produit")
     description = models.TextField(null=True)
     categorie = models.ForeignKey(CategorieProduit, on_delete=models.SET_NULL, null=True)
-    quantite = models.IntegerField()
+    quantite = models.IntegerField(null=True)
     madein = models.CharField(max_length=100, blank=True, verbose_name="Pays de fabrication")
 
     # images produits
@@ -255,7 +256,7 @@ class Produit(models.Model):
 
 class PrixProduit(models.Model):
     produit = models.ForeignKey(Produit, on_delete=models.SET_NULL, null=True)
-    prix = models.DecimalField(max_digits=15, decimal_places=2)
+    prix = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     ancien_prix = models.DecimalField(max_digits=15, decimal_places=2, null=True, default=0, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     archive = models.BooleanField(default=False)
@@ -332,3 +333,38 @@ class GetPoint(models.Model):
 
     def __str__(self):
         return f"{self.client} : Point - {self.point}"
+
+
+class KitProduit(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    nom = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.nom
+
+    @property
+    def prix_total(self):
+        return sum(article.prix_total for article in self.kitarticle_set.all())
+
+
+class KitArticle(models.Model):
+
+    kit = models.ForeignKey("KitProduit", on_delete=models.CASCADE)
+    produit = models.ForeignKey("PrixProduit", on_delete=models.CASCADE)
+    quantite = models.PositiveIntegerField(default=1)
+
+    prix_unitaire = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal("0.00"))
+    prix_total = models.DecimalField(max_digits=12, decimal_places=2, default=Decimal("0.00"))
+
+    def __str__(self):
+        return f"{self.produit.produit.libelle} x {self.quantite}"
+
+    def save(self, *args, **kwargs):
+        if self.produit and self.quantite:
+            self.prix_unitaire = self.produit.prix or Decimal("0.00")
+            self.prix_total = Decimal(self.quantite) * self.prix_unitaire
+        else:
+            self.prix_unitaire = Decimal("0.00")
+            self.prix_total = Decimal("0.00")
+        super().save(*args, **kwargs)

@@ -1,14 +1,19 @@
+import uuid
+from decimal import Decimal
+
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.http import JsonResponse, HttpResponse
+from django.forms import inlineformset_factory
+from django.http import JsonResponse, HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 
 from affiliation.forms import ProduitForm, CategorieProduitForm, PrixProduitForm, ArticlePanierForm, UserUpdateForm, \
-    PayDashForm, UserCreation20Form, GroupeForm
+    PayDashForm, UserCreation20Form, GroupeForm, KitProduitForm, KitArticleFormSet, KitArticleForm, \
+    KitArticleUpdateFormSet
 from .forms import SelectionUtilisateurForm
 from affiliation.models import Produit, CategorieProduit, PrixProduit, Panier, ArticlePanier, HistoriqueVente, User, \
-    Palier, Payement, Groupe
+    Palier, Payement, Groupe, KitProduit, KitArticle
 from django.contrib.auth.decorators import login_required
 
 
@@ -221,7 +226,7 @@ def dash(request):
     commande_en_attente_count = HistoriqueVente.objects.filter(statut="En attente").count()
     categorie_count = CategorieProduit.objects.filter(archive=False).count()
     produit_count = Produit.objects.filter(archive=False).count()
-    payement_count = Payement.objects.filter(statut=True).count()
+    payement_count = Payement.objects.filter(statut=False).count()
     payements = Payement.objects.filter(statut=False)
     groupe_count = Groupe.objects.filter(archive=False).count()
     users_count_is_admin = User.objects.filter(is_admin=True).count()
@@ -527,7 +532,7 @@ def ajouter_au_panier(request, id):
     return redirect('boutique')
 
 
-@login_required
+"""@login_required
 def voir_panier(request):
     # Récupérer l'utilisateur sélectionné dans la session
     utilisateur_selectionne_id = request.session.get('utilisateur_selectionne_id', None)
@@ -567,6 +572,74 @@ def voir_panier(request):
         'total': total,
         'nombre_articles': nombre_articles,
         'articlespanier': articlespanier,
+    }
+
+    return render(request, 'vente/panier/panier.html', context)"""
+
+from django import forms
+
+
+# Créer un formulaire pour saisir la remise
+class RemiseForm(forms.Form):
+    remise = forms.IntegerField(
+        required=False,
+        min_value=0,
+        label="Remise",
+        widget=forms.NumberInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Montant de la remise',
+            'style': 'font-size: 15px; font-weight: bold;'
+        })
+    )
+
+
+@login_required
+def voir_panier(request):
+    # Récupérer l'utilisateur sélectionné dans la session
+    utilisateur_selectionne_id = request.session.get('utilisateur_selectionne_id', None)
+    if not utilisateur_selectionne_id:
+        return redirect('boutique')
+
+    # Récupérer l'utilisateur sélectionné et le panier
+    utilisateur_selectionne = get_user_model().objects.get(id=utilisateur_selectionne_id)
+    panier = get_object_or_404(Panier, utilisateur=utilisateur_selectionne)
+
+    # Récupérer les articles du panier
+    articles = panier.articles.filter(archive=False)
+    nombre_articles = articles.count()
+
+    # Calculer le sous-total pour chaque article et le total du panier
+    articles_avec_sous_total = []
+    total = 0
+    for article in articles:
+        sous_total = article.quantite * article.produit.prix
+        articles_avec_sous_total.append({
+            'article': article,
+            'sous_total': sous_total
+        })
+        total += sous_total
+
+    # Gestion de la remise avec un formulaire
+    remise_form = RemiseForm(request.POST or None)
+    remise = 0
+
+    if request.method == "POST" and remise_form.is_valid():
+        remise = remise_form.cleaned_data.get('remise', 0)
+        request.session['remise'] = remise  # Stocker la remise en session
+
+    # Calculer le total après remise
+    total_avec_remise = total - remise
+
+    # Passer les données au template
+    context = {
+        'panier': panier,
+        'articles_avec_sous_total': articles_avec_sous_total,
+        'total': total,
+        'total_avec_remise': total_avec_remise,
+        'nombre_articles': nombre_articles,
+        'articlespanier': articles,
+        'remise_form': remise_form,
+        'remise': remise,
     }
 
     return render(request, 'vente/panier/panier.html', context)
@@ -677,11 +750,16 @@ def soumettre_panier(request):
 
     # Calcul du prix total du panier
     prix_total = sum(article.quantite * article.produit.prix for article in articles)
+
+    # Récupérer la remise depuis la session
+    remise = request.session.get('remise', 0)
+    prix_total_apres_remise = prix_total - remise
+
     statut = "En attente"
 
     # Création de l'historique de vente
     historique = HistoriqueVente.objects.create(
-        prix=prix_total,
+        prix=prix_total_apres_remise,
         client=utilisateur_selectionne,
         statut=statut,
     )
@@ -698,9 +776,16 @@ def soumettre_panier(request):
     # Marquer la commande comme validée dans la session
     request.session['valider_commande'] = True
 
+    # Supprimer la remise de la session
+    request.session.pop('remise', None)
+
     # Supprimer l'utilisateur sélectionné de la session pour permettre de sélectionner un autre utilisateur
     if 'utilisateur_selectionne_id' in request.session:
         del request.session['utilisateur_selectionne_id']
+
+    # Supprimer la remise de la session
+    if 'remise' in request.session:
+        del request.session['remise']
 
     # Rediriger vers la boutique après la soumission du panier
     return redirect('boutique')
@@ -715,6 +800,68 @@ def vente(request):
         'historiques': historiques,
     }
     return render(request, 'vente/vente.html', context)
+
+
+""" DEBUT
+    VUE DE MODIFICATION DES VENTES 
+"""
+from django import forms
+class HistoriqueVenteModificationForm(forms.ModelForm):
+    remise = forms.DecimalField(label="Remise", max_digits=10, decimal_places=2, required=False, initial=0)
+
+    class Meta:
+        model = HistoriqueVente
+        fields = ['panier', 'remise', 'commentaire', 'statut']
+        widgets = {
+            'panier': forms.CheckboxSelectMultiple(),  # Affichage des articles comme cases à cocher
+        }
+
+
+from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib import messages
+@login_required
+@login_required
+def modifier_commande(request, id):
+    # Récupérer l'historique de vente ou afficher une 404 si introuvable
+    historique = get_object_or_404(HistoriqueVente, id=id, archive=False)
+
+    # Récupérer les articles associés à cet historique de vente
+    articles = historique.panier.all()
+
+    if request.method == "POST":
+        form = HistoriqueVenteModificationForm(request.POST, instance=historique)
+
+        if form.is_valid():
+            # Récupérer la remise du formulaire ou définir à 0 si aucune remise n'est saisie
+            remise = form.cleaned_data['remise'] or 0
+
+            # Calculer le nouveau prix total en tenant compte des quantités et de la remise
+            nouveau_prix_total = sum(article.quantite * article.produit.prix for article in articles)
+            nouveau_prix_total -= remise  # Appliquer la remise
+
+            # Mettre à jour l'historique de vente avec le nouveau prix, en s'assurant que le prix reste positif
+            historique.prix = max(nouveau_prix_total, 0)
+            form.save()  # Sauvegarder toutes les autres modifications
+
+            messages.success(request, "La commande a été mise à jour avec succès.")
+            return redirect('vente')
+    else:
+        # Pré-remplir le formulaire avec les données existantes, y compris la remise
+        form = HistoriqueVenteModificationForm(instance=historique,
+                                               initial={'remise': request.session.get('remise', 0)})
+
+    # Contexte à passer au template
+    context = {
+        'form': form,
+        'historique': historique,
+        'articles': articles,
+    }
+    return render(request, 'vente/modifiervente.html', context)
+"""
+    VUE DE MOFICATION DES VENTES
+    FIN
+"""
+
 
 
 @login_required
@@ -947,6 +1094,18 @@ def user_creation(request):
     return render(request, 'Profile/user_creation.html', context)
 
 
+def allusers(request):
+    utilisateurs = User.objects.filter(is_active=True)
+
+    for utilisateur in utilisateurs:
+        pourcentages_paliers = {
+            "Bamiléké": int(min(utilisateur.point / 35 * 100, 100)),
+            "Zoulou": int(min((utilisateur.point - 35) / (155 - 35) * 100, 100)) if utilisateur.point > 35 else 0,
+            "Maya": int(min((utilisateur.point - 155) / (485 - 155) * 100, 100)) if utilisateur.point > 155 else 0
+        }
+    return render(request, 'Profile/allusers.html', locals())
+
+
 """
 @login_required
 def change_password(request, id):
@@ -1020,3 +1179,382 @@ def deletegroupe(request, id):
         data['html_form'] = render_to_string('groupe/deletegroupe.html', context, request=request)
 
     return JsonResponse(data)
+
+
+@login_required
+def creer_kit(request):
+    # On crée le formset inline
+    KitArticleFormSet = inlineformset_factory(
+        KitProduit, KitArticle,
+        form=KitArticleForm,
+        extra=1,
+        can_delete=True
+    )
+
+    if request.method == "POST":
+        kit_form = KitProduitForm(request.POST)
+        formset = KitArticleFormSet(request.POST)
+
+        if kit_form.is_valid() and formset.is_valid():
+            # On enregistre d'abord le kit
+            kit = kit_form.save()
+
+            # On prépare les articles sans encore les sauvegarder
+            articles = formset.save(commit=False)
+
+            # Supprimer les lignes cochées DELETE
+            for obj in formset.deleted_objects:
+                obj.delete()
+
+            # Calcul du prix unitaire et total pour chaque article
+            for article in articles:
+                if article.produit:
+                    prix_unitaire = getattr(article.produit, 'prix', Decimal('0.00'))
+                    article.prix_unitaire = prix_unitaire
+                    article.prix_total = prix_unitaire * Decimal(article.quantite)
+                    article.kit = kit
+                    article.save()
+
+            messages.success(request, "Kit enregistré avec succès.")
+            return redirect('liste_kits')
+        else:
+            # Debug : afficher les erreurs si invalides
+            print("Form errors:", kit_form.errors)
+            print("Formset errors:", formset.errors)
+
+    else:
+        kit_form = KitProduitForm()
+        formset = KitArticleFormSet()
+
+    prix_produits = PrixProduit.objects.all()
+    return render(request, 'dash/creer_kit.html', {
+        'kit_form': kit_form,
+        'formset': formset,
+        'prix_produits': prix_produits
+    })
+
+
+@login_required
+def liste_kits(request):
+    kits = KitProduit.objects.all()
+
+    """import pandas as pd
+    df = pd.read_excel("affiliation/templates/dash/test - Copie.xlsx", engine='openpyxl', dtype=str)
+    print(df["quantite"].tolist())"""
+
+    return render(request, 'dash/list_kit.html', {'kits': kits})
+
+
+@login_required
+def modifier_kit(request, uuid):
+    kit = get_object_or_404(KitProduit, uuid=uuid)
+
+    if request.method == "POST":
+        form = KitProduitForm(request.POST, instance=kit)
+        formset = KitArticleUpdateFormSet(request.POST, instance=kit)
+
+        if form.is_valid() and formset.is_valid():
+            kit = form.save()
+            for article in formset.save(commit=False):
+                article.prix_unitaire = article.produit.prix
+                article.prix_total = article.quantite * article.prix_unitaire
+                article.kit = kit
+                article.save()
+            for article in formset.deleted_objects:
+                article.delete()
+
+            messages.success(request, "Le kit a été modifié avec succès.")
+            return redirect("liste_kits")
+
+        """if not form.is_valid():
+            print("Form errors:", form.errors)
+
+        if not formset.is_valid():
+            print("Formset errors:", formset.errors)"""
+
+    else:
+        form = KitProduitForm(instance=kit)
+        formset = KitArticleUpdateFormSet(instance=kit)
+
+    return render(request, "dash/modifier_kit.html", {
+        "form": form,
+        "formset": formset,
+        "kit": kit
+    })
+
+
+def _clean_number(val):
+    """Tente de convertir val en Decimal proprement (gère chaînes avec virgule, espaces...)."""
+    if val is None:
+        raise ValueError("valeur None")
+    # si c'est déjà numpy.nan -> raise
+    try:
+        if pd.isna(val):
+            raise ValueError("NaN")
+    except Exception:
+        # pd.isna peut lever si val n'est pas reconnu, on continue
+        pass
+    s = str(val).strip()
+    if s == "":
+        raise ValueError("vide")
+    # remplacer virgule décimale par point et supprimer espaces insécables
+    s = s.replace('\xa0', '').replace(' ', '').replace(',', '.')
+    # retirer tout sauf chiffres, point et signe -
+    import re
+    s = re.sub(r'[^0-9\.\-]', '', s)
+    if s == "" or s == ".":
+        raise ValueError("non convertible")
+    return Decimal(s)
+
+def _choose_numeric_column(df, exclude_cols=set()):
+    """
+    Si la colonne 'quantite' n'a pas été trouvée, on essaie de deviner :
+    on choisit la colonne (non exclue) contenant le plus de valeurs numériques convertibles.
+    """
+    best_col = None
+    best_count = 0
+    for col in df.columns:
+        if col in exclude_cols:
+            continue
+        col_values = df[col].head(300)  # échantillon
+        count = 0
+        for v in col_values:
+            try:
+                _clean_number(v)
+                count += 1
+            except Exception:
+                continue
+        if count > best_count and count >= 1:
+            best_count = count
+            best_col = col
+    return best_col
+
+
+from decimal import Decimal
+import pandas as pd
+from django.utils.safestring import mark_safe
+from django.contrib import messages
+
+def clean_quantite(val):
+    """Nettoie et convertit une valeur en int pour la quantité."""
+    if val is None:
+        return None
+    s = str(val).strip().replace('\xa0', '').replace(' ', '').replace(',', '.')
+    import re
+    s = re.sub(r'[^0-9.]', '', s)
+    if s == "":
+        return None
+    try:
+        return int(round(Decimal(s)))
+    except:
+        return None
+
+
+@login_required
+def importer_kits_excel(request):
+    if request.method == "POST" and request.FILES.get("fichier"):
+        fichier = request.FILES["fichier"]
+
+        # --- Lecture du fichier Excel ---
+        try:
+            df = pd.read_excel(fichier, engine='openpyxl', dtype=str)
+        except Exception as e:
+            messages.error(request, f"Erreur lecture fichier : {e}")
+            return redirect("importer_kits_excel")
+
+        # --- Nettoyage des colonnes ---
+        df.columns = df.columns.astype(str).str.strip().str.lower()
+
+        colonnes_possibles = {
+            "type": ["type"],
+            "produit": ["produit"],
+            "quantite": ["quantite"],
+            "prix_total_achat": ["prix total achat"],
+        }
+
+        colonnes_trouvees = {}
+        for cle, possibles in colonnes_possibles.items():
+            for possible in possibles:
+                for col in df.columns:
+                    if possible in col:
+                        colonnes_trouvees[cle] = col
+                        break
+                if cle in colonnes_trouvees:
+                    break
+
+        # Heuristique : si certaines colonnes manquent, on essaie de deviner
+        if "quantite" not in colonnes_trouvees:
+            guess = _choose_numeric_column(df, exclude_cols=set(colonnes_trouvees.values()))
+            if guess:
+                colonnes_trouvees["quantite"] = guess
+
+        if "prix_total_achat" not in colonnes_trouvees:
+            guess = _choose_numeric_column(df, exclude_cols=set(colonnes_trouvees.values()))
+            if guess:
+                colonnes_trouvees["prix_total_achat"] = guess
+
+        # Vérification des colonnes minimales
+        manquantes = [k for k in ("type", "produit", "quantite", "prix_total_achat") if k not in colonnes_trouvees]
+        if manquantes:
+            messages.error(request, mark_safe(
+                "Le fichier doit contenir (ou permettre de déduire) les colonnes : "
+                "<strong>Type, Produit, Quantité, Prix total d'achat</strong>."
+                f"<br>Colonnes détectées : {list(df.columns)}"
+            ))
+            return redirect("importer_kits_excel")
+
+        # --- Initialisation des compteurs ---
+        erreurs = []
+        lignes_ignorees = []
+        lignes_succes = 0
+        dernier_type_kit = None
+        kits_crees = set()
+        articles_crees = 0
+        articles_mis_a_jour = 0
+        articles_modifies = []  # 🆕 pour suivre les modifications précises
+
+        # --- Parcours des lignes du fichier ---
+        for index, row in df.iterrows():
+            lineno = index + 2  # ligne réelle (en comptant l’en-tête)
+            try:
+                # TYPE DE KIT
+                raw_type = row[colonnes_trouvees["type"]]
+                raw_type_str = str(raw_type).strip() if raw_type is not None else ""
+                type_kit = raw_type_str if raw_type_str.lower() not in ("nan", "none", "") else ""
+                if type_kit:
+                    dernier_type_kit = type_kit
+                elif dernier_type_kit:
+                    type_kit = dernier_type_kit
+                else:
+                    lignes_ignorees.append(f"Ligne {lineno} ignorée : 'type' vide et aucun précédent.")
+                    continue
+
+                # PRODUIT
+                raw_prod = row[colonnes_trouvees["produit"]]
+                raw_prod_str = str(raw_prod).strip() if raw_prod is not None else ""
+                produit_nom = raw_prod_str if raw_prod_str.lower() not in ("nan", "none", "") else ""
+                if not produit_nom:
+                    lignes_ignorees.append(f"Ligne {lineno} ignorée : produit vide.")
+                    continue
+
+                # QUANTITÉ
+                raw_q = row[colonnes_trouvees["quantite"]]
+                if raw_q is None or (isinstance(raw_q, float) and pd.isna(raw_q)) or str(raw_q).strip() == "":
+                    quantite = None
+                else:
+                    try:
+                        quantite = int(round(float(str(raw_q).replace(',', '.').strip())))
+                    except Exception:
+                        quantite = None
+
+                # PRIX TOTAL D’ACHAT
+                raw_prix_total = row[colonnes_trouvees["prix_total_achat"]]
+                try:
+                    prix_total = _clean_number(raw_prix_total)
+                    prix_total = prix_total.quantize(Decimal("0.01"))
+                except Exception:
+                    prix_total = Decimal("0.00")
+
+                # prix_unitaire = (prix_total / Decimal(quantite)).quantize(Decimal("0.01")) if quantite else Decimal("0.00")
+                from decimal import ROUND_HALF_UP
+
+                # --- Calcul prix unitaire à partir du prix total du fichier ---
+                if quantite:
+                    prix_unitaire = (prix_total / Decimal(quantite)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+                    # recalculer le prix total à partir du prix unitaire arrondi
+                    prix_total = (prix_unitaire * Decimal(quantite)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+                else:
+                    prix_unitaire = Decimal("0.00")
+                    prix_total = Decimal("0.00")
+
+                # CRÉATION / MISE À JOUR DES OBJETS
+                produit_obj, _ = Produit.objects.get_or_create(libelle=produit_nom)
+
+                prix_produit_obj, created_pp = PrixProduit.objects.get_or_create(
+                    produit=produit_obj,
+                    defaults={"prix": prix_unitaire}
+                )
+                if not created_pp:
+                    prix_produit_obj.prix = prix_unitaire
+                    prix_produit_obj.save()
+
+                kit_obj, kit_created = KitProduit.objects.get_or_create(nom=type_kit)
+                if kit_created:
+                    kits_crees.add(kit_obj.nom)
+
+                # 🔎 Gestion spéciale : quantité manquante
+                if quantite is None:
+                    raise ValueError("Kit créé mais quantité invalide")
+
+                article, created = KitArticle.objects.get_or_create(
+                    kit=kit_obj,
+                    produit=prix_produit_obj,
+                    defaults={
+                        "quantite": quantite,
+                        "prix_unitaire": prix_unitaire,
+                        "prix_total": prix_total,
+                    }
+                )
+
+                if created:
+                    articles_crees += 1
+                else:
+                    changements = []
+                    # Comparaison des champs
+                    if article.quantite != quantite:
+                        changements.append(f"quantité : {article.quantite} → {quantite}")
+                        article.quantite = quantite
+                    if article.prix_unitaire != prix_unitaire:
+                        changements.append(f"prix unitaire : {article.prix_unitaire} → {prix_unitaire}")
+                        article.prix_unitaire = prix_unitaire
+                    if article.prix_total != prix_total:
+                        changements.append(f"prix total : {article.prix_total} → {prix_total}")
+                        article.prix_total = prix_total
+
+                    # Mise à jour seulement si quelque chose a changé
+                    if changements:
+                        article.save()
+                        articles_mis_a_jour += 1
+                        articles_modifies.append(
+                            f"{kit_obj.nom} → {produit_nom} ({', '.join(changements)})"
+                        )
+
+                lignes_succes += 1
+
+            except Exception as e:
+                message_erreur = str(e)
+                if "quantité" in message_erreur.lower() or "quantite" in message_erreur.lower():
+                    erreurs.append(f"Erreur à la ligne {lineno} : Kit créé mais quantité invalide")
+                elif "NOT NULL constraint failed" in message_erreur:
+                    erreurs.append(f"Erreur à la ligne {lineno} : Kit créé mais quantité invalide")
+                else:
+                    erreurs.append(f"Erreur à la ligne {lineno} : {message_erreur}")
+
+        # --- RÉSUMÉ DU TRAITEMENT ---
+        resume = f"""
+        ✅ <strong>Import terminé</strong><br>
+        • {lignes_succes} lignes traitées<br>
+        • 🆕 {len(kits_crees)} kits créés<br>
+        • 📦 {articles_crees} articles ajoutés<br>
+        • ♻️ {articles_mis_a_jour} articles mis à jour
+        """
+
+        if kits_crees:
+            resume += "<br><br><strong>Kits créés :</strong><br>" + ", ".join(sorted(kits_crees))
+        if articles_modifies:
+            resume += "<br><br><strong>📋 Articles modifiés :</strong><br>" + "<br>".join(articles_modifies[:50])
+        if lignes_ignorees:
+            resume += "<br><br><strong>ℹ️ Lignes ignorées :</strong><br>" + "<br>".join(lignes_ignorees[:50])
+        if erreurs:
+            resume += "<br><br><strong>⚠️ Erreurs :</strong><br>" + "<br>".join(erreurs[:50])
+
+        if erreurs or lignes_ignorees:
+            messages.warning(request, mark_safe(resume))
+        else:
+            messages.success(request, mark_safe(resume))
+
+        return redirect("importer_kits_excel")
+
+    return render(request, "dash/import_kits.html")
+
+
